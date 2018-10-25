@@ -18,24 +18,30 @@ app.use(express.static('public'));
 console.log("Server started...");
 
 //import socket
-let socket = require('socket.io');
-let io = socket(server);
+let _socket = require('socket.io');
+let io = _socket(server);
+
+
+if(currentChat == ''){
+  currentChat = new Chat();
+}
 
 //Event: new Connection
 io.on('connection', function(socket){
+  console.log("chat: " + currentChat);
   console.log(socket.id + "  connected");
   let user;
 
   //Event: Client asks to join the Chatroom
   socket.on('connect to chat', function(username){
       //if no chatroom exists -> create a new chatroom
-      if(currentChat == ''){
-        currentChat = new Chat();
-      }
+
+
 
       //create new User
       user = new Chatuser(username, socket);
       //console.log(user);
+
 
       //Connect User to Chat
       currentChat.connectClient(user);
@@ -43,7 +49,9 @@ io.on('connection', function(socket){
 
   //Event: Client disconnects
   socket.on('disconnect', function(){
-      if(currentChat != '') currentChat.disconnectClient(socket);
+      console.log("Socket: " + socket.id + " disconnected.");
+      currentChat.disconnectClient(socket);
+    //  console.log(currentChat);
   });
 
   //Event: Client sents a message in chat

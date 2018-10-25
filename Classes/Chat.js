@@ -31,23 +31,30 @@ class Chat {
 
     //send "user has joined" message to the chat
     this.message(this.server, user.username + " has joined the chat.");
+    //this.logClients();
   }
 
   //finding disconnected user in userarray and delete this user
   disconnectClient(socket){
+
     let username;
     for(let i = 0; i < this.clients.length; i++){
-      if(this.clients[i].socket.id == socket.id){
+      if(this.clients[i].socket.id === socket.id){
         username = this.clients[i].username;
-        this.clients.splice(i);
+        this.clients.splice(i, 1);
+        //this.logClients();
       }
     }
 
 
     this.message(this.server, username + " has left the chat.");
-
   }
 
+  logClients(){
+    for (var j = 0; j < this.clients.length; j++) {
+      console.log(this.clients[j].username);
+    }
+  }
 
   message(user, message){
     let logMessage;
