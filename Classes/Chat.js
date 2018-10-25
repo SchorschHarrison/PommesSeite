@@ -1,26 +1,40 @@
+//import user class
 const Chatuser = require('./Chatuser.js');
 
 
 class Chat {
+
   constructor() {
-    this.name = 'chat';
+    //this.name = 'chat';
+    //create Array for users;
     this.clients = [];
+
+    //create chatlog (array of messages)
     this.chatlog = [];
+
+    //set limit for chatlog
     this.chatlogLimit = 100;
+
+    //create dummy user for server messages
     this.server = new Chatuser('SERVER', null);
   }
 
 
+
   connectClient(user){
-    //// TODO: send chat protocol;
+    //send current chatlog to new user
     user.socket.emit('chatlog' , this.chatlog);
+
+    //add user to userlist
     this.clients.push(user);
     console.log(user.username + " joined the chat");
+
+    //send "user has joined" message to the chat
     this.message(this.server, user.username + " has joined the chat.");
   }
 
+  //finding disconnected user in userarray and delete this user
   disconnectClient(socket){
-    //// TODO: disconnect logic
     let username;
     for(let i = 0; i < this.clients.length; i++){
       if(this.clients[i].socket.id == socket.id){
@@ -28,6 +42,7 @@ class Chat {
         this.clients.splice(i);
       }
     }
+
 
     this.message(this.server, username + " has left the chat.");
 
@@ -54,6 +69,7 @@ class Chat {
 
   }
 
+//send a message to all connected users
   sendMessageToClients(message){
     for(let i = 0; i < this.clients.length; i++){
       this.clients[i].socket.emit('message', message);
