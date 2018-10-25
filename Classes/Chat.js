@@ -38,16 +38,18 @@ class Chat {
   disconnectClient(socket){
 
     let username;
+    let found = 0;
     for(let i = 0; i < this.clients.length; i++){
       if(this.clients[i].socket.id === socket.id){
         username = this.clients[i].username;
         this.clients.splice(i, 1);
+        found = 1;
         //this.logClients();
       }
     }
 
 
-    this.message(this.server, username + " has left the chat.");
+    if(found > 0) this.message(this.server, username + " has left the chat.");
   }
 
   logClients(){
@@ -79,8 +81,10 @@ class Chat {
 //send a message to all connected users
   sendMessageToClients(message){
     for(let i = 0; i < this.clients.length; i++){
+    if(this.clients[i] != ''){
       this.clients[i].socket.emit('message', message);
-      console.log("message sent to: " + this.clients[i].username);
+        console.log("message sent to: " + this.clients[i].username);
+    }
     }
   }
 
