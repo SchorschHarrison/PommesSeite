@@ -61,14 +61,12 @@ class App {
       }
 
 
-      if(this._currentpageObject != null){
-        console.log("heyaaa");
-        console.log(this._currentPageObject);
-        if(newPage === this._currentPageObject.name){
-          console.log("Seite bereits offen!");
+      if(this._currentPageObject != null){
+        if(this._currentPageObject.name === newPage.name){
+          console.log("samePage");
           return;
         }
-      };
+      }
 
 
       // Aktuelle Seite ausblenden

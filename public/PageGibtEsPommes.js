@@ -1,7 +1,9 @@
 class PageGibtEsPommes {
 
 
-  constructor() {
+  constructor(app, name) {
+    this._app = app;
+    this.name = name;
     this._mainElement = document.getElementById("main-page-gibtespommes");
     if(PageGibtEsPommes.socket == '') PageGibtEsPommes.socket = io.connect("http://localhost:80");
 

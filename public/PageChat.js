@@ -2,10 +2,11 @@ class PageChat {
 
 
 
-  constructor() {
+  constructor(app, name) {
+    this._app = app;
+    this.name = name;
     this.connectedToChat = 0;
     this._mainElement = document.getElementById("main-page-chat");
-    if(PageChat.socket == '') PageChat.socket = io.connect('http://localhost:80');
     this.div_entername = document.getElementById("entername");
     this.div_chat = document.getElementById("chat");
     this.input_message = document.getElementById("input_message");
@@ -19,6 +20,10 @@ class PageChat {
     this.input_message.addEventListener("keyup", (event) => this.enterPressed(event));
     this.btn_send.addEventListener("click", () => this.send());
 
+    if(PageChat.socket == null){
+      PageChat.socket = io.connect('http://localhost:80');
+      console.log("socket created");
+    }
 
     PageChat.socket.on('message', (message) => this.recieveMessage(message));
     PageChat.socket.on('chatlog', (_chatlog) => this.recieveChatlog(_chatlog));
@@ -46,6 +51,7 @@ class PageChat {
     this._mainElement.classList.add("show");
     this.div_entername.classList.add("hidden");
     this.div_chat.classList.add("hidden");
+  //  PageChat.socket = null;
   }
 
   recieveChatlog(_chatlog){
@@ -112,4 +118,4 @@ class PageChat {
 }
 
 PageChat.connectedToChat = 0;
-PageChat.socket = '';
+PageChat.socket = null;
