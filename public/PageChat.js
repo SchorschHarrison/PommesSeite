@@ -20,8 +20,10 @@ class PageChat {
 
     this.socket.on('message', (message) => this.recieveMessage(message));
     this.socket.on('chatlog', (_chatlog) => this.recieveChatlog(_chatlog));
+    //this.socket.on('gibt es heute pommes', (pommes) => console.log("Es gibt Pommes!: " + pommes));
 
     this.div_chat.classList.add("hide");
+    //this.socket.emit('gibt es heute pommes');
 
   }
 

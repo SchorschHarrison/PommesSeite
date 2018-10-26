@@ -2,6 +2,9 @@
 const Chat = require('./Classes/Chat.js');
 const Chatuser = require('./Classes/Chatuser.js');
 
+const rp = require('request-promise');
+const url = 'https://www.imensa.de/karlsruhe/mensa-erzbergerstrasse/index.html';
+
 
 let express = require('express');
 
@@ -26,6 +29,12 @@ if(currentChat == ''){
   currentChat = new Chat();
 }
 
+
+
+
+
+
+
 //Event: new Connection
 io.on('connection', function(socket){
   console.log("chat: " + currentChat);
@@ -45,6 +54,41 @@ io.on('connection', function(socket){
 
       //Connect User to Chat
       currentChat.connectClient(user);
+  });
+
+
+  socket.on('gibt es heute pommes', function(){
+
+    let pommes = 0;
+    rp(url)
+      .then(function(html){
+        //success!
+        //console.log(html);
+        let s = "<p class="+ '"aw-meal-description">';
+        let a = html.split(s);
+        let meals = [];
+
+        for (var i = 0; i < a.length; i++) {
+          meals[i] = a[i].split("</p>")[0];
+        }
+        meals.shift();
+        console.log(meals);
+
+        for (var i = 0; i < meals.length; i++) {
+          let p = meals[i].split("Pommes");
+          if(p.length > 1){
+            console.log("pommes gefunden: " + i );
+            pommes = 1;
+          }
+        }
+
+        socket.emit('gibt es heute pommes', pommes);
+
+      })
+      .catch(function(err){
+        console.log("fehler");
+      });
+
   });
 
   //Event: Client disconnects
