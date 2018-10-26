@@ -2,35 +2,82 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <link rel="stylesheet" href="index.css">
-  <script type="text/javascript" src="index.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-  <script type="text/javascript" src="App.js"></script>
-  <script type="text/javascript" src="PageChat.js"></script>
-  <script type="text/javascript" src="PageGibtEsPommes.js"></script>
+
+      <meta charset="utf-8">
+      <title>Pommes</title>
+
+      <!--für Bootstrap-->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+      <!--Icon für Browsertab, transparent-->
+      <link rel="icon title" type="image/x-png" href="french-fries_1f35f.png">
+
+      <!--Einsprungspunkt für Website, wird geladen wenn die Seite geladen wird-->
+      <link rel="stylesheet" href="index.css">
+      <script type="text/javascript" src="index.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+      <!-- Klasse App: Steuert die gesamte Anwendung -->
+      <script type="text/javascript" src="app.js"></script>
+      <link rel="stylesheet" href="app.css" />
+
+      <!--Klasse PageChat: für das Chat-Programm-->
+      <script type="text/javascript" src="page-chat.js"></script>
+      <script type="text/javascript" src="page-gibtEsPommes.js"></script>
+
+      <!-- Klasse PageGameOne: Steuert GameOne -->
+      <script src="page-gameOne.js"></script>
+      <link rel="stylesheet" href="page-gameOne.css" />
+
+      <!-- Klasse PagePommesRezeptListe: -->
+      <script src="page-pommesRezeptListe.js"></script>
+      <link rel="stylesheet" href="page-pommesRezeptListe.css" />
+
+      <!-- Klasse PagePommesRezeptEdit: -->
+      <script src="page-pommesRezeptEdit.js"></script>
+      <link rel="stylesheet" href="page-pommesRezeptEdit.css" />
+
+      <!-- Klasse PagePommesRezeptBild: -->
+      <script src="page-pommesRezeptBild.js"></script>
+      <link rel="stylesheet" href="page-pommesRezeptBild.css" />
+
+      <!-- Klasse PageAppInhalt: -->
+      <!--<script src="page-appInhalt.js"></script>
+      <link rel="stylesheet" href="page-appInhalt.css" />-->
+
+      <!-- weitere Klassen hier einbinden-->
+
 
 </head>
 <header>
-  Hallo
+  Es klappt! Hier könnte unser Header stehen
 </header>
 
 
 <body>
 
+  <!-- Kopfbereich mit Tabreitern -->
   <nav id="app-menu">
-    <ul></ul>
+      <ul></ul>
   </nav>
 
-  <template id="template-app-menu-li">
-    <li data-page-name="$NAME$">
-      <a>$LABEL$</a>
-    </li>
+  <!--Tabreiter haben Name von label-->
+  <template id="template-app-menu-li">   <!--id um Aussehen von App-Menü zu bearbeiten-->
+      <li data-page-name="$NAME$">
+          <a>$LABEL$</a>
+      </li>
   </template>
 
 
+  <!-- Seite: Startseite - Gibt es heute Pommes? -->
+  <main id="main-page-gibtespommes" class="hidden">
+      Guten Tag! Diese Website informiert sie, ob es heute an der DHBW Karlsruhe Pommes gibt!
+  </main>
 
+<!-- Seite: Chat - Inhalt von Chat -->
   <main id="main-page-chat" class="hidden">
     <div class="" id="entername">
       Username:
@@ -46,17 +93,31 @@
     </div>
   </main>
 
-  <main id="main-page-gibtespommes" class="hidden">
-    Guten Tag! Diese Website informiert sie, ob es heute an der DHBW Karlsruhe Pommes gibt!
-  </main>
+<!-- Seite: GameOne - Inhalt von GameOne -->
+  <main id="main-page-gameOne" class="hidden">
+        <h1> Hier ist GameOne!</h1>
+    </main>
 
+<!-- Seite: PagePommesRezeptListe - Inhalt von PommesRezept-Startseite -->
+  <main id="main-page-rezepte" class="hidden">
+        <h1> Hier gibts Rezepte!</h1>
+    </main>
 
+<!-- Seite: PagePommesRezeptEdit  -->
+  <main id="main-page-rezepteEdit" class="hidden">
+        <h1> Hier kannst du Rezept ändern!</h1> <!--evtl. brauche ich template, um diese Seite zu laden - evtl. nicht-->
+    </main>
 
+<!-- Seite:PagePommesRezeptBild  -->
+  <main id="main-page-rezepteBild" class="hidden">
+        <h1> Hier kannst du Bilder auswählen!</h1>
+    </main>
 
 </body>
 
 
 <footer>
+  Hier könnte unser Footer stehen 
 </footer>
 
 </html>

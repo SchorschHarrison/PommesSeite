@@ -1,0 +1,81 @@
+/*Stylesheet zur Klasse App: Hautpsheet der Anwendung
+ * Hier sollten nur allgemeine Sachen stehen, die das Layout als Ganzes
+ * betreffen. Also solche Dinge wie Schriftart und Größe, Farben usw.
+ * Spezifische Angaben zur Listenübersicht oder dem Eingabeformular gehören
+ * in das jeweilige Stylesheet und nicht hierher.
+ */
+
+ /* ALLGEMEINES */
+ html, body {
+     padding: 0;
+     margin: 0;
+     color: black;
+ }
+
+ html {
+     font-family: "Rubik", sans-serif;
+     font-size: 10pt;
+     line-height: 1.6;
+ }
+
+ .hidden {
+     display: none;
+ }
+
+
+ /*Responsive-Einstellung*/
+ @media (min-width: 40em) {
+     html {
+         background-color: #F9D423;
+         font-size: 11pt;
+     }
+
+     body {
+         max-width: 60em;
+         margin: 0 auto;
+         margin-top: 2em;
+         margin-bottom: 2em;
+
+         border: 0px solid #F05053;
+         box-shadow: 1px 1px 3px #F6903D;
+
+     }
+ }
+
+ /* NAVIGATION */
+ nav {
+     background-color: #F05053;
+     color: black;
+
+     border: 1px solid #F9D423;
+     border-bottom-width: 3px;
+ }
+
+ nav ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     margin-bottom: -3px;
+
+     display: flex;
+ }
+
+ nav li {
+     padding: 1em;
+     margin: 0;
+ }
+
+ nav li.active {
+     background-color: maroon;
+     border: 0px solid ;
+     border-bottom-width: 3px;
+ }
+
+ nav li:hover {
+     background-color: #F6903D;
+     color: black;
+     border: 0px solid #F05053;
+     border-bottom-width: 3px;
+
+     cursor: pointer;
+ }
