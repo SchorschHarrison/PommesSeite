@@ -54,10 +54,22 @@ class App {
       // Gewünschte Seite suchen
       let newPage = this._pages.find(p => p.name === name);
 
+
       if (newPage === undefined) {
           console.error(`Klasse App, Methode showPage(): Ungültige Seite „${name}”`);
           return;
       }
+
+
+      if(this._currentpageObject != null){
+        console.log("heyaaa");
+        console.log(this._currentPageObject);
+        if(newPage === this._currentPageObject.name){
+          console.log("Seite bereits offen!");
+          return;
+        }
+      };
+
 
       // Aktuelle Seite ausblenden
       if (this._currentPageObject != null) {
