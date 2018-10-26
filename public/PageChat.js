@@ -3,6 +3,7 @@ class PageChat {
 
 
   constructor(app, name) {
+    this.id = PageChat.ids;
     this._app = app;
     this.name = name;
     this.connectedToChat = 0;
@@ -11,27 +12,28 @@ class PageChat {
     this.div_chat = document.getElementById("chat");
     this.input_message = document.getElementById("input_message");
     this.textArea_chatlog = document.getElementById("textArea_chatlog");
-    this.btn_send = document.getElementById("btn_send");
+    if(PageChat.btn_send == '') PageChat.btn_send= document.getElementById("btn_send");
     this.btn_enterchat = document.getElementById("btn_enterchat");
-    this.chatlog = [];
+    if(PageChat.chatlog == '') PageChat.chatlog = [];
 
 
     this.btn_enterchat.addEventListener("click", () => this.enterChat());
     this.input_message.addEventListener("keyup", (event) => this.enterPressed(event));
-    this.btn_send.addEventListener("click", () => this.send());
+    PageChat.btn_send.addEventListener("click", () => this.send());
 
     if(PageChat.socket == null){
       PageChat.socket = io.connect('http://localhost:80');
+      PageChat.socket.on('message', (message) => this.recieveMessage(message));
+      PageChat.socket.on('chatlog', (_chatlog) => this.recieveChatlog(_chatlog));
       console.log("socket created");
     }
 
-    PageChat.socket.on('message', (message) => this.recieveMessage(message));
-    PageChat.socket.on('chatlog', (_chatlog) => this.recieveChatlog(_chatlog));
+
     //PageChat.socket.on('gibt es heute pommes', (pommes) => console.log("Es gibt Pommes!: " + pommes));
 
     this.div_chat.classList.add("hidden");
     //PageChat.socket.emit('gibt es heute pommes');
-
+    PageChat.ids++;
   }
 
   show(){
@@ -56,7 +58,7 @@ class PageChat {
 
   recieveChatlog(_chatlog){
     console.log(_chatlog);
-    this.chatlog = _chatlog;
+    PageChat.chatlog = _chatlog;
     this.updateTextArea();
   }
 
@@ -64,25 +66,26 @@ class PageChat {
     event.preventDefault();
 
     if(event.keyCode === 13){
-      this.btn_send.click();
+      PageChat.btn_send.click();
     }
   }
 
   recieveMessage(message){
-    this.chatlog.push(message);
-    if(this.chatlog.length > 100) this.chatlog.shift();
+    console.log("recieved something");
+    PageChat.chatlog.push(message);
+    if(PageChat.chatlog.length > 100) PageChat.chatlog.shift();
   //  addMessageToTextArea(message);
     this.updateTextArea();
   }
 
   updateTextArea(){
-    this.textArea_chatlog.value = this.chatlog.join("\n");
+    this.textArea_chatlog.value = PageChat.chatlog.join("\n");
     this.textArea_chatlog.scrollTop = this.textArea_chatlog.scrollHeight;
   }
 
 
   send(){
-    console.log("pressed Send");
+    console.log("pressed Send " + this.id);
 
     let message = input_message.value;
 
@@ -119,3 +122,6 @@ class PageChat {
 
 PageChat.connectedToChat = 0;
 PageChat.socket = null;
+PageChat.chatlog = '';
+PageChat.btn_send = '';
+PageChat.ids = 0;
