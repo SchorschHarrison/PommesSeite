@@ -5,7 +5,7 @@ class PageChat {
   constructor() {
     this.connectedToChat = 0;
     this._mainElement = document.getElementById("main-page-chat");
-    this.socket = io.connect('http://localhost:80');
+    if(PageChat.socket == '') PageChat.socket = io.connect('http://localhost:80');
     this.div_entername = document.getElementById("entername");
     this.div_chat = document.getElementById("chat");
     this.input_message = document.getElementById("input_message");
@@ -20,12 +20,12 @@ class PageChat {
     this.btn_send.addEventListener("click", () => this.send());
 
 
-    this.socket.on('message', (message) => this.recieveMessage(message));
-    this.socket.on('chatlog', (_chatlog) => this.recieveChatlog(_chatlog));
-    //this.socket.on('gibt es heute pommes', (pommes) => console.log("Es gibt Pommes!: " + pommes));
+    PageChat.socket.on('message', (message) => this.recieveMessage(message));
+    PageChat.socket.on('chatlog', (_chatlog) => this.recieveChatlog(_chatlog));
+    //PageChat.socket.on('gibt es heute pommes', (pommes) => console.log("Es gibt Pommes!: " + pommes));
 
     this.div_chat.classList.add("hidden");
-    //this.socket.emit('gibt es heute pommes');
+    //PageChat.socket.emit('gibt es heute pommes');
 
   }
 
@@ -82,7 +82,7 @@ class PageChat {
 
     if(message.trim() == '') return;
 
-    this.socket.emit('message', message);
+    PageChat.socket.emit('message', message);
     this.input_message.value = '';
 
 
@@ -101,7 +101,7 @@ class PageChat {
     this.div_chat.classList.remove('hidden');
     PageChat.connectedToChat = 1;
   //  console.log(this.connectedToChat);
-    this.socket.emit('connect to chat', username);
+    PageChat.socket.emit('connect to chat', username);
 
   }
 
@@ -112,3 +112,4 @@ class PageChat {
 }
 
 PageChat.connectedToChat = 0;
+PageChat.socket = '';
