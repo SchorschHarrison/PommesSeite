@@ -1,44 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="index.css">
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <script type="text/javascript" src="PageChat.js"></script>
 
-  </head>
-  <header>
-    Hallo
-  </header>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="index.css">
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <script type="text/javascript" src="App.js"></script>
+  <script type="text/javascript" src="PageChat.js"></script>
+  <script type="text/javascript" src="PageGibtEsPommes.js"></script>
 
-
-  <body>
-
-    <div class="" id="calvin">
+</head>
+<header>
+  Hallo
+</header>
 
 
-      <div class="" id="entername">
-        Username:
-        <input type="text" name="" value="" id="input_name">
-        <button type="button" name="button" id="btn_enterchat">Enter Chat</button>
-      </div>
+<body>
 
-      <div class="" id="chat">
-        <textarea readonly name="name" rows="8" cols="80" id="textArea_chatlog"></textarea>
-        <br>
-        <input type="text" name="" value="" id="input_message">
-        <button id="btn_send" type="button" name="button">Send</button>
-      </div>
+  <nav id="app-menu">
+    <ul></ul>
+  </nav>
 
+  <template id="template-app-menu-li">
+    <li data-page-name="$NAME$">
+      <a>$LABEL$</a>
+    </li>
+  </template>
+
+
+
+  <main id="main-page-chat" class="hidden">
+    <div class="" id="entername">
+      Username:
+      <input type="text" name="" value="" id="input_name">
+      <button type="button" name="button" id="btn_enterchat">Enter Chat</button>
     </div>
 
+    <div class="" id="chat">
+      <textarea readonly name="name" rows="8" cols="80" id="textArea_chatlog"></textarea>
+      <br>
+      <input type="text" name="" value="" id="input_message">
+      <button id="btn_send" type="button" name="button">Send</button>
+    </div>
+  </main>
 
-  </body>
+
+  <main id="main-page-gibtespommes" class="hidden">
+    Pommes! Du ficker!
+  </main>
 
 
-  <footer>
-  </footer>
+
+
+</body>
+
+
+<footer>
+</footer>
 
 </html>

@@ -3,6 +3,8 @@ class PageChat {
 
 
   constructor() {
+    this.connectedToChat = 0;
+    this._mainElement = document.getElementById("main-page-chat");
     this.socket = io.connect('http://localhost:80');
     this.div_entername = document.getElementById("entername");
     this.div_chat = document.getElementById("chat");
@@ -22,9 +24,28 @@ class PageChat {
     this.socket.on('chatlog', (_chatlog) => this.recieveChatlog(_chatlog));
     //this.socket.on('gibt es heute pommes', (pommes) => console.log("Es gibt Pommes!: " + pommes));
 
-    this.div_chat.classList.add("hide");
+    this.div_chat.classList.add("hidden");
     //this.socket.emit('gibt es heute pommes');
 
+  }
+
+  show(){
+    this._mainElement.classList.remove("hidden");
+    if(PageChat.connectedToChat > 0){
+      this.div_entername.classList.add("hidden");
+      this.div_chat.classList.remove("hidden");
+    }else {
+      this.div_entername.classList.remove("hidden");
+      this.div_chat.classList.add("hidden");
+    }
+
+
+  }
+
+  hide(){
+    this._mainElement.classList.add("show");
+    this.div_entername.classList.add("hidden");
+    this.div_chat.classList.add("hidden");
   }
 
   recieveChatlog(_chatlog){
@@ -69,15 +90,17 @@ class PageChat {
   }
 
   enterChat(){
+    if(PageChat.connectedToChat > 0 ) return;
     let username = document.getElementById("input_name").value;
     if(username.trim() == ''){
       this.noName();
       return;
     }
 
-    this.div_entername.classList.add('hide');
-    this.div_chat.classList.remove('hide');
-
+    this.div_entername.classList.add('hidden');
+    this.div_chat.classList.remove('hidden');
+    PageChat.connectedToChat = 1;
+  //  console.log(this.connectedToChat);
     this.socket.emit('connect to chat', username);
 
   }
@@ -86,7 +109,6 @@ class PageChat {
   noName(){
     console.log("Please Enter name");
   }
-
-
-
 }
+
+PageChat.connectedToChat = 0;
