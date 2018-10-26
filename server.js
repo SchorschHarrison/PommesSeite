@@ -58,7 +58,6 @@ io.on('connection', function(socket){
 
 
   socket.on('gibt es heute pommes', function(){
-
     let pommes = 0;
     rp(url)
       .then(function(html){
@@ -86,7 +85,7 @@ io.on('connection', function(socket){
 
       })
       .catch(function(err){
-        console.log("fehler");
+        console.log(err.error.code);
       });
 
   });

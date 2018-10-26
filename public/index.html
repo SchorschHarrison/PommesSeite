@@ -5,6 +5,10 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" href="index.css">
+
+  <!---Link Bootstrap stuff -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <!-------------------------------------------------------------------------------->
   <script type="text/javascript" src="index.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
   <script type="text/javascript" src="App.js"></script>
@@ -12,24 +16,26 @@
   <script type="text/javascript" src="PageGibtEsPommes.js"></script>
 
 </head>
-<header>
-  Hallo
-</header>
-
 
 <body>
 
-  <nav id="app-menu">
-    <ul></ul>
-  </nav>
+  <section class="container">
+    <nav id="app-menu" class="navbar navbar-expand-lg">
+      <ul></ul>
+    </nav>
+  </section>
 
-  <template id="template-app-menu-li">
-    <li data-page-name="$NAME$">
+
+
+
+  <template id="template-app-menu-li" class="navbar-brand">
+    <li data-page-name="$NAME$" class="navbar-brand">
       <a>$LABEL$</a>
     </li>
   </template>
 
 
+<section class="container">
 
   <main id="main-page-chat" class="hidden">
     <div class="" id="entername">
@@ -50,13 +56,11 @@
     Guten Tag! Diese Website informiert sie, ob es heute an der DHBW Karlsruhe Pommes gibt!
   </main>
 
+</section>
+
+
 
 
 
 </body>
-
-
-<footer>
-</footer>
-
 </html>

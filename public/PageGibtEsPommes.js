@@ -5,10 +5,14 @@ class PageGibtEsPommes {
     this._app = app;
     this.name = name;
     this._mainElement = document.getElementById("main-page-gibtespommes");
-    if(PageGibtEsPommes.socket == '') PageGibtEsPommes.socket = io.connect("http://localhost:80");
+    if(PageGibtEsPommes.socket == ''){
+      PageGibtEsPommes.socket = io.connect("http://localhost:80");
+      //console.log(PageGibtEsPommes.socket.id);
+      PageGibtEsPommes.socket.on('gibt es heute pommes', (pommes) => this.pommesAnzeige(pommes));
+    }
 
-    //console.log(PageGibtEsPommes.socket.id);
-    PageGibtEsPommes.socket.on('gibt es heute pommes', (pommes) => this.pommesAnzeige(pommes));
+
+
     PageGibtEsPommes.socket.emit('gibt es heute pommes');
   }
 
