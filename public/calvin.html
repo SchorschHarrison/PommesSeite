@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="page-chat.css">
+    <script type="text/javascript" src="page-chat.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  </head>
+  <header>
+    Hallo
+  </header>
+
+
+  <body onload="initChat()">
+
+    <div class="" id="calvin">
+
+
+      <div class="" id="entername">
+        Username:
+        <input type="text" name="" value="" id="input_name">
+        <button type="button" name="button" onclick="enterChat()">Enter Chat</button>
+      </div>
+
+      <div class="hide" id="chat">
+        <textarea readonly name="name" rows="8" cols="80" id="textArea_chatlog"></textarea>
+        <br>
+        <input type="text" name="" value="" id="input_message">
+        <button id="btn_send" type="button" name="button" onclick="send()">Send</button>
+      </div>
+
+    </div>
+
+
+  </body>
+
+
+  <footer>
+  </footer>
+</html>
