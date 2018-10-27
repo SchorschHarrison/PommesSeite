@@ -21,35 +21,49 @@ class App {
           label: "Lustiges Pommesspiel",      // Bezeichnung der Seite
           hidden: false,                      // Seite kann im Menü ausgewählt werden
       },
-      { 	 //Seite zu PommesStartseiteNew
+      /*{ 	 //Seite zu PommesStartseiteNew        redundant?
           name: "page-PommesStartseiteNew",
           klass: PagePommesRezeptListe,
           label: "Rezepte anzeigen",
-          hidden: false,                      // Seite kann im Menü ausgewählt werden
+          hidden: true,                      // Seite kann im Menü ausgewählt werden
+      },*/
+      {    //Seite zu PommesRezepten Standardseite  Erweiterung 1                                         TEST
+          name: "main-page-rezepteNewRezept",
+          klass: PagePommesRezeptListe,       //PagePommesRezeptListe wurde nicht versteckt
+          label: "",
+          hidden: true,                       // Seite kann im Menü ausgewählt werden
+      },
+      {    //Seite zu PommesRezepten Standardseite  Erweiterung  2                                        TEST
+          name: "main-page-rezepteNewPicture",
+          klass: PagePommesRezeptListe,
+          label: "",
+          hidden: true,                       // Seite kann im Menü ausgewählt werden
       },
       {    //Seite zu PommesRezepten Standardseite
           name: "page-PommesRezeptListe",
           klass: PagePommesRezeptListe,
-          label: "<a>Pommes Rezepte</a>",
-          hidden: true,                       // Seite kann im Menü ausgewählt werden
+          label: "Rezepte",
+          hidden: false,                       // Seite kann im Menü ausgewählt werden
       },
-      { 	 //Seite zu PommesRezeptenNew
+
+  /*    { 	 //Seite zu PommesRezeptenNew      redundant?
           name: "page-PommesRezeptNew",
           klass: PagePommesRezeptEdit,
           label: "Neues Rezept hinzufügen",
           hidden: false,                      // Seite kann im Menü ausgewählt werden
-      },
+      },*/
       {   //Seite zu PommesRezeptenEdit
           name: "page-PommesRezeptEdit",
           klass: PagePommesRezeptEdit,
-          hidden: true,                      // Seite kann im Menü NICHT ausgewählt werden
+          label: "Neues Rezept hinzufügen",
+          hidden: false,                      // Seite kann im Menü ausgewählt werden
       },
-      {   //Seite zu PommesRezeptenBild
+  /*    {   //Seite zu PommesRezeptenBild
           name: "page-PommesRezeptBild",
           klass: PagePommesRezeptBild,
           label: "Bild aussuchen",
           hidden: true,                   // Seite kann im Menü NICHT ausgewählt werden
-      },
+      },*/
     ]
 
 
@@ -83,6 +97,8 @@ class App {
           ul.appendChild(li);
       });
   }
+
+
 
 
   showPage(name, editIndex) {

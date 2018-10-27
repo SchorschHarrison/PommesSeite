@@ -31,7 +31,7 @@
      }
 
      body {
-         max-width: 60em;
+         max-width: 70em;
          margin: 0 auto;
          margin-top: 2em;
          margin-bottom: 2em;
@@ -66,8 +66,8 @@
  }
 
  nav li.active {
-     background-color: maroon;
-     border: 0px solid ;
+     background-color: #F6903D;
+     border: 0px solid #F05053;
      border-bottom-width: 3px;
  }
 

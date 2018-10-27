@@ -1,0 +1,143 @@
+
+#main-page-rezepte .container-fluid{
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+  padding-bottom:1em;
+}
+
+#main-page-rezepteNewPicture .container-fluid{
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+}
+
+#main-page-rezepteNewRezept .container-fluid{
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+  padding-bottom:1em;
+}
+
+
+
+/* LISTENEINTRÄGE */
+#main-page-rezepte ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 1em;
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+    background-color: maroon;
+}
+
+#main-page-rezepte li {
+
+  /*  padding-top: 1em;
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+
+    background-color: maroon;*/
+    transition: background-color 0.5s;
+
+    border-bottom: 2px solid navy;
+}
+#zweite_spalte{
+  padding: 0.5em;
+  padding-left: 1em !important;
+  padding-right: 0em !important;
+}
+
+#main-page-rezepte li:hover {
+    background-color: #F4FA58;
+}
+
+#main-page-rezepte .Rezept-Name {
+    font-size: 150%;
+}
+
+/*zwei Spalten*/
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+
+/* Rezept-Aktionbuttons */
+#rezept_Buttons .actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+#rezept_Buttons .actions > div {
+    padding: 0.5em;
+    margin: 1em;
+
+    background-color: navy;
+    transition: background-color 0.5s;
+
+    flex: 1;
+    text-align: center;
+}
+
+#rezept_Buttons .actions > div:first-child {
+    margin-left: 0;
+}
+
+#rezept_Buttons .actions > div:last-child {
+    margin-right: 0;
+}
+
+#rezept_Buttons .actions > div:hover {
+    background-color: maroon;
+    cursor: pointer;
+}
+
+#new_button{
+  color:white;
+  background-color: blue;
+}
+
+/*PageRezeptNew*/
+#main-page-rezepteNewRezept {
+  background-color: maroon;
+  padding: 1em 1em 0em 1em;
+  border-bottom: 2px solid navy;
+}
+
+
+#main-page-rezepteNewRezept .form > * {
+    display: block;
+    width: 100%;
+
+    background-color: #F4FA58;
+    border: 0px solid black;
+    border-bottom-width: 2px;
+
+    padding: 0.5em 0 0.5em 0;
+    /*margin-bottom: 1em;*/
+}
+
+
+/*PageBilderAuswahl*/
+#main-page-rezepteNewPicture {
+  padding-top: 1em;
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+
+  background-color: maroon;
+  transition: background-color 0.5s;
+
+  border-bottom: 2px solid navy;
+}
+
+
+#main-page-rezepteNewPicture .pictures {
+    /*margin-bottom: 1em;*/
+}
+
+
+/*Vorschlaege Bilder */
+#vorschlaege {
+
+  /*font-size: 16pt;*/
+}
