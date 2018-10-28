@@ -33,11 +33,17 @@
      body {
          max-width: 60em;
          margin: 0 auto;
-         margin-top: 2em;
+         /*margin-top: 2em; */
          margin-bottom: 2em;
 
          border: 0px solid #F05053;
          box-shadow: 1px 1px 3px #F6903D;
+
+     }
+     header > img{
+       max-width: 60em;
+       padding-bottom: 0.2em;
+       background-color: transparent;
 
      }
  }
