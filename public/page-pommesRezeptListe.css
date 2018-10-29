@@ -1,9 +1,4 @@
 
-#main-page-rezepte .container-fluid{
-  padding-left: 0em !important;
-  padding-right: 0em !important;
-  padding-bottom:1em;
-}
 
 #main-page-rezepteNewPicture .container-fluid{
   padding-left: 0em !important;
@@ -16,7 +11,10 @@
   padding-bottom:1em;
 }
 
-
+#template-page-list-empty{    /*funktioniert noch nicht*/
+  font-size: 120%;
+  text-align: center;
+}
 
 /* LISTENEINTRÄGE */
 #main-page-rezepte ol {
@@ -139,5 +137,17 @@
 /*Vorschlaege Bilder */
 #vorschlaege {
 
-  /*font-size: 16pt;*/
+  font-size: 120%;
+}
+
+
+/*Design für newButton*/
+#main-page-rezepteNewButton{
+  margin: 0;
+  padding: 0;
+  padding-top: 1em;
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+  background-color: maroon;
+
 }

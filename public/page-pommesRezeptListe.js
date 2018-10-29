@@ -15,6 +15,7 @@ class PagePommesRezeptListe{
       this._mainElement = document.getElementById("main-page-rezepte"); //geht in index.html in die main von Rezepte Startseite
       this._newRezeptElement = document.getElementById("main-page-rezepteNewRezept");
       this._newPictureElement = document.getElementById("main-page-rezepteNewPicture");
+      this._newButtonElement = document.getElementById("main-page-rezepteNewButton");
 
       this.rezeptName;
       this.zutaten;
@@ -39,6 +40,64 @@ this._rezepte = [
     },
     ];
 
+
+    let newRezeptButton = document.getElementById("new_button");
+    newRezeptButton.addEventListener("click", () => this._openNewRezept());
+
+    let backToRezeptButton = document.getElementById("back_buttonToRezepte");
+    backToRezeptButton.addEventListener("click", () => this._backToRezept());
+
+    let saveButton = this._newRezeptElement.querySelector(".action.save");
+    saveButton.addEventListener("click", () => this._saveAndExit());
+
+    let bildButton = this._newRezeptElement.querySelector(".action.bild");
+    bildButton.addEventListener("click", () => this._openBildAuswahl());
+
+    let backButton = this._newPictureElement.querySelector(".action.goBack");
+    backButton.addEventListener("click", () => this._goBackToNewRezept());
+
+    let saveBildButton = this._newPictureElement.querySelector(".action.savePicture");
+    saveBildButton.addEventListener("click", () => this._saveBildAndExit());
+
+
+  }
+
+startFunktionRezept(){
+/*
+      let ol = document.querySelector("#main-page-rezepte > ol");
+      ol.innerHTML = "";
+
+      // Meldung, wenn noch keine Daten vorhanden sind
+      if (this._rezepte.length < 1) {
+          let template = document.getElementById("template-page-list-empty").innerHTML;
+          ol.innerHTML = template;
+          return;
+      }
+
+      let template = document.getElementById("template-page-list-li").innerHTML;
+      let index = -1;
+
+      this._rezepte.forEach(rezeptNew => {
+          // Index hochzählen
+          index++;
+
+          // Neues Element auf Basis des Templates erzeugen
+          let dummy = document.createElement("div");
+          dummy.innerHTML = template;
+
+          dummy.innerHTML = dummy.innerHTML.replace("$INDEX$", index);
+          dummy.innerHTML = dummy.innerHTML.replace("$RECIPE_NAME$", rezeptNew.rezept_name);
+          dummy.innerHTML = dummy.innerHTML.replace("$INGREDIENTS$", rezeptNew.zutaten);
+          dummy.innerHTML = dummy.innerHTML.replace("$PREPARATIONOFFOOD$", rezeptNew.zubereitung);
+          dummy.innerHTML = dummy.innerHTML.replace("IMAGE", rezeptNew.image); //Bild flexibel
+
+          /* Innere Funktion, damit den Event Listenern eine Kopie(!!) von
+           * index übergeben wird. Andernfalls würde immer nur der letzte
+           * Wert von index vom letzten Schleifendurchlauf übergeben werden.
+           */
+  /*        let _addEventListeners = (index) => {
+              // Event Listener für <div class="action edit"> registrieren
+
 //Button newRezeptButton - wenn click dann zeige "main-page-rezepteNewRezept"
       let newRezeptButton = document.getElementById("new_button");
       newRezeptButton.addEventListener("click", () => this._openNewRezept());
@@ -58,7 +117,21 @@ this._rezepte = [
       let saveBildButton = this._newPictureElement.querySelector(".action.savePicture");
       saveBildButton.addEventListener("click", () => this._saveBildAndExit());
 
-  }
+    };
+
+    _addEventListeners(index);
+
+    // Eintrag nun anzeigen
+    let li = dummy.firstElementChild;
+
+    if (li) {
+        dummy.removeChild(li);
+        ol.appendChild(li);
+    }
+});*/
+}
+
+
 
 //Zurück zu Rezepten von NewRezept Seite
 _backToRezept(){
@@ -293,13 +366,15 @@ _listeRezepteErgaenzen(){
 
 
   show() {
-    //  this._listeRezepteErgaenzen();
-      this._mainElement.classList.remove("hidden");
+    this.showNewButton();
+    this._mainElement.classList.remove("hidden");
+    this.startFunktionRezept();
   }
 
 
   hide() {
-      this._mainElement.classList.add("hidden");
+    this.hideNewButton();
+    this._mainElement.classList.add("hidden");
   }
 
   showNewRezept() {
@@ -318,6 +393,13 @@ _listeRezepteErgaenzen(){
     this._newPictureElement.classList.add("hidden");
   }
 
+  showNewButton() {
+    this._newButtonElement.classList.remove("hidden");
+  }
+
+  hideNewButton() {
+    this._newButtonElement.classList.add("hidden");
+  }
 
 
 

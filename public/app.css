@@ -66,14 +66,13 @@
  }
 
  nav li.active {
-     background-color: maroon;
-     border: 0px solid ;
+     background-color: #F6903D;
+     border: 0px solid maroon;
      border-bottom-width: 3px;
  }
 
  nav li:hover {
-     background-color: #F6903D;
-     color: black;
+     background-color: #F9D423;
      border: 0px solid #F05053;
      border-bottom-width: 3px;
 

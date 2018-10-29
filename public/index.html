@@ -37,12 +37,12 @@
       <link rel="stylesheet" href="page-pommesRezeptListe.css" />
 
       <!-- Klasse PagePommesRezeptEdit: -->
-      <script src="page-pommesRezeptEdit.js"></script>
-      <link rel="stylesheet" href="page-pommesRezeptEdit.css" />
+  <!--    <script src="page-pommesRezeptEdit.js"></script>
+      <link rel="stylesheet" href="page-pommesRezeptEdit.css" />-->
 
       <!-- Klasse PagePommesRezeptBild: -->
-      <script src="page-pommesRezeptBild.js"></script>
-      <link rel="stylesheet" href="page-pommesRezeptBild.css" />
+    <!--  <script src="page-pommesRezeptBild.js"></script>
+      <link rel="stylesheet" href="page-pommesRezeptBild.css" />-->
 
       <!-- Klasse PageAppInhalt: -->
       <!--<script src="page-appInhalt.js"></script>
@@ -98,19 +98,37 @@
         <h1> Hier ist GameOne!</h1>
     </main>
 
+
+
+<!-- Seite: PagePommesRezeptListe - Newbutton auf Rezept Startseite -->
+<main id="main-page-rezepteNewButton" class="hidden">
+
+  <div class="container-fluid">
+    <div class="row no-gutters">
+        <div class="col center-block">
+          <button type="button" id="new_button" class="btn btn-lg btn-primary btn-block" >Neues Rezept hinzufügen</button><!--onclick="myFunction()-->
+        </div>
+      </div>
+    </div>
+
+</main>
+
+
 <!-- Seite: PagePommesRezeptListe - Inhalt von PommesRezept-Startseite -->
 <main id="main-page-rezepte" class="hidden">
   <!--<template id="template-page-edit">-->
   <ol>
-<div class="container-fluid">
-  <div class="row no-gutters">
-      <div class="col center-block">
-        <button type="button" id="new_button" class="btn btn-lg btn-primary btn-block" >Neues Rezept hinzufügen</button><!--onclick="myFunction()-->
-      </div>
-    </div>
-  </div>
 
-<!--<template id="template-page-list-li">-->
+    <template id="template-page-list-empty">
+        <li>
+            <div class="name">
+                Kein Rezept vorhanden. Trag besser mal eins ein.
+            </div>
+        </li>
+    </template>
+
+  <!--    <template id="template-page-list-li">-->
+
   <li data-index="$INDEX$">
             <div class="row no-gutters">
               <div class="col-md-3">
@@ -146,8 +164,8 @@
         </div>
       </div>
   </li>
-<!--  </template>-->
-</ol>
+  <!--</template>-->
+
 
   </main>
 
@@ -178,7 +196,7 @@
         </div>
       </div>
     </div>
-
+</ol>
 </main>
 
 <!-- Seite: main-page-rezepteNewPicture -->
