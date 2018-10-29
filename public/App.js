@@ -6,25 +6,25 @@ class App {
       { //Startseite - zeigt an ob es heute Pommes gibt oder nicht
         name: "page-list", // Name zum Aufrufen der Seite
         klass: PageGibtEsPommes, // Klasse, die die Seite bereitstellt
-        label: "Übersicht", // Bezeichnung der Seite
+        label: "ÜBERSICHT", // Bezeichnung der Seite
         hidden: false, // Seite kann im Menü ausgewählt werden
       },
       { //Chat-Seite
         name: "page-chat", // Name zum Aufrufen der Seite
         klass: PageChat, // Klasse, die die Seite bereitstellt
-        label: "Chat", // Bezeichnung der Seite
+        label: "CHAT", // Bezeichnung der Seite
         hidden: false, // Seite kann im Menü ausgewählt werden
       },
       {    //Seite zu GameOne
           name: "page-GameOne",               // Name zum Aufrufen der Seite
           klass: PageGameOne,                 // Klasse, die die Seite bereitstellt
-          label: "Lustiges Pommesspiel",      // Bezeichnung der Seite
+          label: "POMMESSPIEL",      // Bezeichnung der Seite
           hidden: false,                      // Seite kann im Menü ausgewählt werden
       },
       {    //Seite zu PommesRezepten Standardseite
           name: "page-PommesRezeptListe",
           klass: PagePommesRezeptListe,
-          label: "Rezepte",
+          label: "REZEPTE",
           hidden: false,                       // Seite kann im Menü ausgewählt werden
       },
       {    //Seite zu PommesRezepten Standardseite  Erweiterung 1                                         TEST

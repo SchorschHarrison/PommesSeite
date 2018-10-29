@@ -6,6 +6,7 @@
  */
 
  /* ALLGEMEINES */
+
  html, body {
      padding: 0;
      margin: 0;
@@ -13,7 +14,7 @@
  }
 
  html {
-     font-family: "Rubik", sans-serif;
+     font-family: "Anton", sans-serif;
      font-size: 10pt;
      line-height: 1.6;
  }
@@ -26,7 +27,7 @@
  /*Responsive-Einstellung*/
  @media (min-width: 40em) {
      html {
-         background-color: #F9D423;
+         background-color: #f9f6f1;
          font-size: 11pt;
      }
 
@@ -44,11 +45,15 @@
 
  /* NAVIGATION */
  nav {
-     background-color: #F05053;
+     background-color: #ee7700;
      color: black;
 
-     border: 1px solid #F9D423;
+     border: 1px solid #ee7700;
      border-bottom-width: 3px;
+     font-family: "Anton";
+     color: white;
+     font-size: 2rem;
+     font-kerning: 10;
  }
 
  nav ul {
@@ -58,12 +63,18 @@
      margin-bottom: -3px;
 
      display: flex;
+
  }
 
  nav li {
+      min-width: 25%;
+      max-width: 25%;
      padding: 1em;
      margin: 0;
+     text-align: center;
  }
+
+
 
  nav li.active {
      background-color: #F6903D;
@@ -73,7 +84,7 @@
 
  nav li:hover {
      background-color: #F9D423;
-     border: 0px solid #F05053;
+     border: 0px solid #616161;
      border-bottom-width: 3px;
 
      cursor: pointer;

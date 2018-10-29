@@ -32,6 +32,7 @@ class PageImageSelect {
 
 
   save(){
+
     let image =  this._mainElement.querySelector('input[name="Gallerie"]:checked').value;
     this.list.updateImage(image);
   }
