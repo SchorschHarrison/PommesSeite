@@ -241,27 +241,26 @@ this._rezeptNew.zutaten = this.zutaten;
 this._rezeptNew.zubereitung = this.zubereitung;
 this._rezeptNew.image = imagePfad;
 
-
-if (this._editIndex > -1) {
-    this.updateRezepteByIndex(this._editIndex, this._rezeptNew);
-} else {
-    this.appendRezept(this._rezeptNew);
-}
-
+//Rezept hinzufügen zu Array
+  if (this._editIndex > -1) {
+      this.updateRezepteByIndex(this._editIndex, this._rezeptNew);
+  } else {
+      this.appendRezept(this._rezeptNew);
+  }
 
 console.log(this._rezepte);
+
   this.hideNewPicture();
   this.show();
 }
 
 
-
+//Show und Hide-Funktionen
   show() {
     this.showNewButton();
     this._mainElement.classList.remove("hidden");
     this.startFunktionRezept();
   }
-
 
   hide() {
     this.hideNewButton();
@@ -297,7 +296,7 @@ console.log(this._rezepte);
 
 
 
-
+//noch nicht genutzter löschen-Code
   _askDelete(index) {
       // Sicherheitsfrage zeigen
       let answer = confirm("Bist du dir sicher, dass du dieses großartige Pommes-Rezept löschen möchtest?");
@@ -311,28 +310,18 @@ console.log(this._rezepte);
   }
 
 
-  /*getRezepte() {
-      return this._rezepte;
-  }*/
-
-  getRezepteByIndex(index) {
-      return this._rezepte[index];
-  }
-
+//Mehrfach verwendeter Code, daher ausgelagert
   updateRezepteByIndex(index, rezeptNew) {
       this._rezepte[index] = rezeptNew;
   }
-
-  deleteRezepteByIndex(index) {
-        this._rezepte.splice(index, 1);
-  }
-
   appendRezept(rezeptNew) {
       this._rezepte.push(rezeptNew);
       return this._rezepte.length - 1;
   }
-
-
+//noch nicht genutzter Code zum löschen von Rezepten
+  deleteRezepteByIndex(index) {
+        this._rezepte.splice(index, 1);
+  }
 
 
 }
