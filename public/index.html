@@ -15,6 +15,9 @@
       <!--Icon für Browsertab, transparent-->
       <link rel="icon title" type="image/x-png" href="french-fries_1f35f.png">
 
+      <!-- jquery Library-->
+      <script type="text/javascript" src="jquery.min.js"></script>
+
       <!--Einsprungspunkt für Website, wird geladen wenn die Seite geladen wird-->
       <link rel="stylesheet" href="index.css">
       <script type="text/javascript" src="index.js"></script>
@@ -96,6 +99,39 @@
 <!-- Seite: GameOne - Inhalt von GameOne -->
   <main id="main-page-gameOne" class="hidden">
         <h1> Hier ist GameOne!</h1>
+        <div class="" id="container">
+          <div class="" id="score_help"> Score:
+            <span id="score">0</span> | Life:
+            <span id="life"></span> | Use mouse to control
+
+          </div>
+
+          <div class="" id="branch"></div>
+
+          <div class="frit" id="frit1"></div>
+          <div class="frit" id="frit2"></div>
+          <div class="frit" id="frit3"></div>
+
+          <div class="chip" id="chip1" data-mashedpot='1'></div>
+          <div class="chip" id="chip2" data-mashedpot='2'></div>
+          <div class="chip" id="chip3" data-mashedpot='3'></div>
+
+          <div class="mashedpot" id="mashedpot1"></div>
+          <div class="mashedpot" id="mashedpot2"></div>
+          <div class="mashedpot" id="mashedpot3"></div>
+
+          <div class="" id="basket">
+            <span id="score_1"></span>
+          </div>
+
+          <div class="" id="floor"></div>
+
+          <button type="button" name="buttonrestart" id="restart">Restart</button>
+          <button type="button" name="buttonlev2" id="lev2">Level 2</button>
+          <button type="button" name="buttonlev1" id="lev1">Level 1</button>
+
+        </div>
+
     </main>
 
 
