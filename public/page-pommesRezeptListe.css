@@ -1,27 +1,43 @@
+/*Bildanzeige im gesamten Funktionsbereich Rezepte*/
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 
+/*Abstände für Rezept-Übersicht-Kacheln und Rezept-anlegen-Kachel*/
+  .zweite_spalte{
+    padding: 0.5em;
+    padding-left: 1em !important;
+    padding-right: 0em !important;
+  }
 
-#main-page-rezepteNewPicture .container-fluid{
-  padding-left: 0em !important;
-  padding-right: 0em !important;
-}
-
-#main-page-rezepteNewRezept .container-fluid{
-  padding-left: 0em !important;
-  padding-right: 0em !important;
-  padding-bottom:1em;
-}
-
-#template-page-list-empty{    /*funktioniert noch nicht*/
+/*Rezept Übersicht*/
+/*Rezept-Übersicht wenn leere Liste*/
+#page_empty{
   font-size: 120%;
   text-align: center;
+  padding-bottom: 1em;
 }
 
-/* LISTENEINTRÄGE */
+/*Button "Neues Rezept hinzufügen"*/
+#new_button{
+  color:white;
+  background-color: navy;
+}
+
+#containerNewButton{
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  background-color: #F6903D;
+}
+
+/* Rezept Übersicht Listeneinträge */
 #main-page-rezepte ol {
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-top: 1em;
     padding-left: 1em !important;
     padding-right: 1em !important;
     background-color: #F6903D;
@@ -29,13 +45,8 @@
 
 #main-page-rezepte li {
     transition: background-color 0.5s;
-
+    padding-top: 1em;
     border-bottom: 2px solid #F9D423;
-}
-.zweite_spalte{
-  padding: 0.5em;
-  padding-left: 1em !important;
-  padding-right: 0em !important;
 }
 
 #main-page-rezepte li:hover {
@@ -46,24 +57,6 @@
     font-size: 150%;
 }
 
-/*zwei Spalten*/
-  img {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-/*newButton*/
-#new_button{
-  color:white;
-  background-color: navy;
-}
-
-#new_button > div:hover{
-  background-color: green;
-}
-
-
 /* Rezept-Aktionbuttons */
 #rezept_Buttons .actions {
     display: flex;
@@ -73,10 +66,8 @@
 #rezept_Buttons .actions > div {
     padding: 0.5em;
     margin: 1em;
-
     background-color: #F05053;
     transition: background-color 0.5s;
-
     flex: 1;
     text-align: center;
 }
@@ -94,60 +85,44 @@
     cursor: pointer;
 }
 
+/*Neues Rezept anlegen*/
+#main-page-rezepteNewRezept .container-fluid{
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+  padding-bottom:1em;
+}
 
-/*PageRezeptNew*/
 #main-page-rezepteNewRezept {
   background-color: maroon;
   padding: 1em 1em 0em 1em;
   border-bottom: 2px solid navy;
 }
 
-
 #main-page-rezepteNewRezept .form > * {
     display: block;
     width: 100%;
-
     background-color: #F4FA58;
     border: 0px solid black;
     border-bottom-width: 2px;
-
     padding: 0.5em 0 0.5em 0;
-    /*margin-bottom: 1em;*/
 }
 
+/*Bilder Galerie*/
+#main-page-rezepteNewPicture .container-fluid{
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+}
 
-/*PageBilderAuswahl*/
 #main-page-rezepteNewPicture {
   padding-top: 1em;
   padding-left: 1em !important;
   padding-right: 1em !important;
-
   background-color: maroon;
   transition: background-color 0.5s;
-
   border-bottom: 2px solid navy;
 }
 
-
-#main-page-rezepteNewPicture .pictures {
-    /*margin-bottom: 1em;*/
-}
-
-
-/*Vorschlaege Bilder */
+/*Radio-Button Bezeichnung */
 #vorschlaege {
-
   font-size: 120%;
-}
-
-
-/*Design für newButton*/
-#main-page-rezepteNewButton{
-  margin: 0;
-  padding: 0;
-  padding-top: 1em;
-  padding-left: 0em !important;
-  padding-right: 0em !important;
-  background-color: #F6903D;
-
 }

@@ -39,18 +39,6 @@
       <script type="text/javascript" src="pageRezeptEdit.js"></script>
       <script type="text/javascript" src="pageImageSelect.js"></script>
 
-      <!-- Klasse PagePommesRezeptEdit: -->
-  <!--    <script src="page-pommesRezeptEdit.js"></script>
-      <link rel="stylesheet" href="page-pommesRezeptEdit.css" />-->
-
-      <!-- Klasse PagePommesRezeptBild: -->
-    <!--  <script src="page-pommesRezeptBild.js"></script>
-      <link rel="stylesheet" href="page-pommesRezeptBild.css" />-->
-
-      <!-- Klasse PageAppInhalt: -->
-      <!--<script src="page-appInhalt.js"></script>
-      <link rel="stylesheet" href="page-appInhalt.css" />-->
-
       <!-- weitere Klassen hier einbinden-->
 
 
@@ -101,29 +89,23 @@
         <h1> Hier ist GameOne!</h1>
     </main>
 
+<!--Start des Funktionsbereichs Rezepte (geht bis zum Schluss) -->
 
-
-<!-- Seite: PagePommesRezeptListe - Newbutton auf Rezept Startseite -->
-
-
-<!-- Seite: PagePommesRezeptListe - Inhalt von PommesRezept-Startseite -->
-
-
+<!--Template für Rezept-Übersicht wenn leere Liste -->
 <template id="template-page-list-empty">
     <li>
-        <div class="name">
+        <div class="name" id="page_empty">
             Kein Rezept vorhanden. Trag besser mal eins ein.
         </div>
     </li>
 </template>
 
-<!--    <template id="template-page-list-li">-->
-
+<!--Template für Rezept-Übersicht Liste -->
 <template id="template-rezept-data">
 <li data-index="$INDEX$">
         <div class="row no-gutters">
           <div class="col-md-3">
-            <img src= "pommesBilder/pommes$IMAGE$.png" >  <!-- $IMAGE$--> <!--so oder in ""-->
+            <img src= "pommesBilder/pommes$IMAGE$.png" >
             </div>
             <div class="col-md-9 zweite_spalte">
               <div class="Rezept-Name">
@@ -158,10 +140,10 @@
 </template>
 
 
-
+<!-- main für Button "Neues Rezept hinzufügen"-->
   <main id="main-page-rezepte" class="hidden">
-    <!--<template id="template-page-edit">-->
-    <div class="container-fluid">
+
+    <div class="container-fluid" id="containerNewButton">
       <div class="row no-gutters">
           <div class="col center-block">
             <button type="button" id="new_button" class="btn btn-lg btn-primary btn-block" >Neues Rezept hinzufügen</button>
@@ -171,18 +153,17 @@
 
     <ol id="ol_rezepte">
   </main>
-  <!-- Seite: main-page-rezepteNewRezept -->
+
+  <!-- main für "Neues Rezept anlegen"-->
   <main id="main-page-rezepteNewRezept" class="hidden">
 
   </main>
 
+<!-- main für Rezept Bilder Galerie -->
   <main id="main-page-rezepteNewPicture" class="hidden">
 
   </main>
-
-
-
-
+<!--Template für Seite "Neues Rezept anlegen"-->
 <template id="template-edit-rezept">
   <div class="container-fluid">
     <div class="row no-gutters">
@@ -213,12 +194,9 @@
                 </div>
           </div>
         </div>
-
 </template>
 
-<!-- Seite: main-page-rezepteNewPicture -->
-
-
+<!--Template zu Bilder Galerie-->
 <template id="template-img-dialog">
   <div class="container-fluid">
     <div class="pictures">
@@ -336,9 +314,9 @@
           </div>
       </div>
    </div>
-
   </div>
 
+<!--Buttons zu Bilder Galerie-->
       <div id="rezept_Buttons">
       <div class="actions">
             <div title="Bild speichern" class="action savePicture">
@@ -348,9 +326,7 @@
       </div>
 </template>
 
-
 </body>
-
 
 <footer>
   Hier könnte unser Footer stehen
