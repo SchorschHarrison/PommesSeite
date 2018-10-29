@@ -25,6 +25,7 @@ class PagePommesRezeptListe{
       this.hideNewRezept();
       this.hideNewPicture();
 
+      	//Voreingetragene Rezepte
 this._rezepte = [
     {
         rezept_name: "Pommes süß-sauer",
@@ -40,7 +41,7 @@ this._rezepte = [
     },
     ];
 
-
+    //Buttons, Verknüpfung mit Event-Listener, Aufruf der Funktionen wenn click
     let newRezeptButton = document.getElementById("new_button");
     newRezeptButton.addEventListener("click", () => this._openNewRezept());
 
@@ -59,76 +60,11 @@ this._rezepte = [
     let saveBildButton = this._newPictureElement.querySelector(".action.savePicture");
     saveBildButton.addEventListener("click", () => this._saveBildAndExit());
 
-
   }
 
+//hier kann die _renderMenu
 startFunktionRezept(){
-/*
-      let ol = document.querySelector("#main-page-rezepte > ol");
-      ol.innerHTML = "";
 
-      // Meldung, wenn noch keine Daten vorhanden sind
-      if (this._rezepte.length < 1) {
-          let template = document.getElementById("template-page-list-empty").innerHTML;
-          ol.innerHTML = template;
-          return;
-      }
-
-      let template = document.getElementById("template-page-list-li").innerHTML;
-      let index = -1;
-
-      this._rezepte.forEach(rezeptNew => {
-          // Index hochzählen
-          index++;
-
-          // Neues Element auf Basis des Templates erzeugen
-          let dummy = document.createElement("div");
-          dummy.innerHTML = template;
-
-          dummy.innerHTML = dummy.innerHTML.replace("$INDEX$", index);
-          dummy.innerHTML = dummy.innerHTML.replace("$RECIPE_NAME$", rezeptNew.rezept_name);
-          dummy.innerHTML = dummy.innerHTML.replace("$INGREDIENTS$", rezeptNew.zutaten);
-          dummy.innerHTML = dummy.innerHTML.replace("$PREPARATIONOFFOOD$", rezeptNew.zubereitung);
-          dummy.innerHTML = dummy.innerHTML.replace("IMAGE", rezeptNew.image); //Bild flexibel
-
-          /* Innere Funktion, damit den Event Listenern eine Kopie(!!) von
-           * index übergeben wird. Andernfalls würde immer nur der letzte
-           * Wert von index vom letzten Schleifendurchlauf übergeben werden.
-           */
-  /*        let _addEventListeners = (index) => {
-              // Event Listener für <div class="action edit"> registrieren
-
-//Button newRezeptButton - wenn click dann zeige "main-page-rezepteNewRezept"
-      let newRezeptButton = document.getElementById("new_button");
-      newRezeptButton.addEventListener("click", () => this._openNewRezept());
-
-      let backToRezeptButton = document.getElementById("back_buttonToRezepte");
-      backToRezeptButton.addEventListener("click", () => this._backToRezept());
-
-      let saveButton = this._newRezeptElement.querySelector(".action.save");
-      saveButton.addEventListener("click", () => this._saveAndExit());
-
-      let bildButton = this._newRezeptElement.querySelector(".action.bild");
-      bildButton.addEventListener("click", () => this._openBildAuswahl());
-
-      let backButton = this._newPictureElement.querySelector(".action.goBack");
-      backButton.addEventListener("click", () => this._goBackToNewRezept());
-
-      let saveBildButton = this._newPictureElement.querySelector(".action.savePicture");
-      saveBildButton.addEventListener("click", () => this._saveBildAndExit());
-
-    };
-
-    _addEventListeners(index);
-
-    // Eintrag nun anzeigen
-    let li = dummy.firstElementChild;
-
-    if (li) {
-        dummy.removeChild(li);
-        ol.appendChild(li);
-    }
-});*/
 }
 
 
@@ -139,13 +75,15 @@ _backToRezept(){
   this.show();
 }
 
+//Zurück zu neuRezept von newPicture
 _goBackToNewRezept(){
   this.showNewRezept();
   this.hideNewPicture();
 }
 
+//Aufruf von newRezept-Seite nach click auf newButton
 _openNewRezept(){
-//Zurücksetzen der Werte
+//Zurücksetzen der Werte, damit bei erneutem click auf newButton die alten Werte weg sind
   document.getElementById('rezept_name').value='';
   document.getElementById('zutaten').value='';
   document.getElementById('zubereitung').value='';
@@ -159,13 +97,14 @@ _openNewRezept(){
   this.hide();
 }
 
+//Zu newPicture von newRezept aus
 _openBildAuswahl() {
+  //eingebene Daten einlesen
+  this.rezeptName = document.querySelector("#main-page-rezepteNewRezept .rezept_name").value.trim();
+  this.zutaten = document.querySelector("#main-page-rezepteNewRezept .zutaten").value;
+  this.zubereitung = document.querySelector("#main-page-rezepteNewRezept .zubereitung").value;
 
-
-this.rezeptName = document.querySelector("#main-page-rezepteNewRezept .rezept_name").value.trim();
-this.zutaten = document.querySelector("#main-page-rezepteNewRezept .zutaten").value;
-this.zubereitung = document.querySelector("#main-page-rezepteNewRezept .zubereitung").value;
-
+  //Fehlende Eingaben abfangen
   if (this.rezeptName === "") {
       alert("Du musst zuerst einen Rezeptnamen eintragen.");
       return;
@@ -179,15 +118,13 @@ this.zubereitung = document.querySelector("#main-page-rezepteNewRezept .zubereit
       return;
   }
 
-
   this.showNewPicture();
   this.hideNewRezept();
   this.hide();
 }
 
-//Methode nachdem auf den SaveButton gedrückt wurde
+//Zurück zu Rezepten von NewRezept Seite + speichern der Werte in Array
 _saveAndExit(){
-
   //eingebene Daten einlesen
    this.rezeptName = document.querySelector("#main-page-rezepteNewRezept .rezept_name").value.trim();
    this.zutaten = document.querySelector("#main-page-rezepteNewRezept .zutaten").value;
@@ -210,6 +147,7 @@ _saveAndExit(){
       return;
   }
 
+//_rezeptNew initialisieren
   this._rezeptNew = {
       rezept_name: "",
       zutaten: "",
@@ -223,33 +161,35 @@ _saveAndExit(){
   this._rezeptNew.zubereitung = this.zubereitung;
   this._rezeptNew.image = imageDefault;
 
+  //Rezept hinzufügen zu Array
   if (this._editIndex > -1) {
       this.updateRezepteByIndex(this._editIndex, this._rezeptNew);
   } else {
       this.appendRezept(this._rezeptNew);
   }
+
 console.log(this._rezepte);
 
-
-    //Seite NewRezept wieder verstecken
     this.hideNewRezept();
     this.show();
 }
 
-//Methode nachdem auf den BildAuswahl-Button gedrückt wurde
+//Zurück zu Rezepten von NewPicture Seite + speichern der Werte in Array
 _saveBildAndExit(){
-  console.log("Button bild speichern läuft");
+  //Fehlende Auswahl abfangen
+  if (document.querySelector('input[name="Gallerie"]:checked') === null){
+    alert("Du musst zuerst ein Bild Auswählen");
+    return;
+  }
 
+//speichern von value des ausgewählten radioButtons
+  let bildNummer =  document.querySelector('input[name="Gallerie"]:checked').value;   //document.getElementById('rates').value;
 
-if (document.querySelector('input[name="Gallerie"]:checked') === null){
-  alert("Du musst zuerst ein Bild Auswählen");
-  return;
-}
-let bildNummer =  document.querySelector('input[name="Gallerie"]:checked').value;   //document.getElementById('rates').value;
+//hierin wird der Pfad zum neuen Bild gespeichert
+  let imagePfad;
 
-let imagePfad;
-
-switch(bildNummer) {
+//je nach Auswahl wird entsprechendes Bild gespeichert
+  switch(bildNummer) {
     case 'Bild0':
         imagePfad="pommesBilder/pommesStandard.png";
         break;
@@ -288,17 +228,19 @@ switch(bildNummer) {
         break;
 }
 
-this._rezeptNew = {
-    rezept_name: "",
-    zutaten: "",
-    zubereitung: "",
-    image: "",
-};
+//_rezeptNew initialisieren
+  this._rezeptNew = {
+      rezept_name: "",
+      zutaten: "",
+      zubereitung: "",
+      image: "",
+  };
 // Rezept speichern
 this._rezeptNew.rezept_name = this.rezeptName;
 this._rezeptNew.zutaten = this.zutaten;
 this._rezeptNew.zubereitung = this.zubereitung;
 this._rezeptNew.image = imagePfad;
+
 
 if (this._editIndex > -1) {
     this.updateRezepteByIndex(this._editIndex, this._rezeptNew);
@@ -311,57 +253,6 @@ console.log(this._rezepte);
   this.hideNewPicture();
   this.show();
 }
-
-/*
-_listeRezepteErgaenzen(){
-  // Alte Einträge verwerfen
-  let ol = document.querySelector("#main-page-rezepte > ol");           //Vorrübergehend
-//  ol.innerHTML = "";*/
-
-  // Meldung, wenn noch keine Daten vorhanden sind
-  //let data = this._app.getData();
-
-  /*if (_rezepte.length < 1) {                                                                       // ERGÄNZEN!!!
-      let template = document.getElementById("template-page-list-empty").innerHTML;
-      ol.innerHTML = template;
-      return;
-  }*/
-
-  // Datensätze einfügen
-/*  let template = document.getElementById("main-page-rezepte").innerHTML;
-  let index = -1;
-
-  this._rezepte.forEach(rezeptNew => {
-      // Index hochzählen
-      index++;
-      // Neues Element auf Basis des Templates erzeugen
-      let dummy = document.createElement("div");
-      dummy.innerHTML = template;
-
-      dummy.innerHTML = dummy.innerHTML.replace("$INDEX$", index);
-      dummy.innerHTML = dummy.innerHTML.replace("$RECIPE_NAME$", rezeptNew.rezept_name);
-      dummy.innerHTML = dummy.innerHTML.replace("$INGREDIENTS$", rezeptNew.zutaten);
-      dummy.innerHTML = dummy.innerHTML.replace("$PREPARATIONOFFOOD$", rezeptNew.zubereitung);
-      dummy.innerHTML = dummy.innerHTML.replace("IMAGE", rezeptNew.image); //Bild flexibel
-
-    let _addEventListeners = (index) => {
-        // Event Listener für <div class="action edit"> registrieren                                     // ERGÄNZEN!!!
-        /*let editButton = dummy.querySelector(".action.edit");
-        editButton.addEventListener("click", () => this._app.showPage("page-edit", index));
-
-        // Event Listener für <div class="action delete"> registrieren                                     // ERGÄNZEN!!!
-        let deleteButton = dummy.querySelector(".action.delete");
-        deleteButton.addEventListener("click", () => this._askDelete(index));*/
-  /*  };
-    _addEventListeners(index);
-    // Eintrag nun anzeigen
-    let li = dummy.firstElementChild;
-    if (li) {
-        dummy.removeChild(li);
-        ol.appendChild(li);
-    }
-    });
-}*/
 
 
 
