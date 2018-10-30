@@ -39,41 +39,36 @@
       <script src="page-pommesRezeptListe.js"></script>
       <link rel="stylesheet" href="page-pommesRezeptListe.css" />
 
-      <!-- Klasse PagePommesRezeptEdit: -->
-  <!--    <script src="page-pommesRezeptEdit.js"></script>
-      <link rel="stylesheet" href="page-pommesRezeptEdit.css" />-->
+      <script type="text/javascript" src="pageRezeptEdit.js"></script>
+      <script type="text/javascript" src="pageImageSelect.js"></script>
 
-      <!-- Klasse PagePommesRezeptBild: -->
-    <!--  <script src="page-pommesRezeptBild.js"></script>
-      <link rel="stylesheet" href="page-pommesRezeptBild.css" />-->
+      <link rel="stylesheet" href="page-chat.css">
+
 
       <!-- Klasse PageAppInhalt: -->
       <script src="pageGibtEsPommes.js"></script>
       <link rel="stylesheet" href="PageGibtEsPommes.css" />
 
+      <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <!--  <link rel="stylesheet" href="font/Insanibu.tff">
+
+
       <!-- weitere Klassen hier einbinden-->
 
 
 </head>
-<header>
-  Es klappt! Hier könnte unser Header stehen
-</header>
+<div class="" id="header">
+  <img src="https://www.buhlergroup.com/static/global/de/media/01-Industrie_Solutions/Banner_Industry_French-fry-dryers.jpg" alt="">
+</div>
 
 
 <body>
 
   <!-- Kopfbereich mit Tabreitern -->
-  <nav id="app-menu">
-      <ul></ul>
-  </nav>
 
-  <!--Tabreiter haben Name von label-->
-  <template id="template-app-menu-li">   <!--id um Aussehen von App-Menü zu bearbeiten-->
-      <li data-page-name="$NAME$">
-          <a>$LABEL$</a>
-      </li>
-  </template>
-
+    <nav id="app-menu">
+        <ul></ul>
+    </nav>
 
   <!-- Seite: Startseite - Gibt es heute Pommes? -->
   <main id="main-page-gibtespommes" class="hidden">
@@ -98,13 +93,15 @@
       <button type="button" name="button" id="btn_enterchat">Enter Chat</button>
     </div>
 
-    <div class="" id="chat">
-      <textarea readonly name="name" rows="8" cols="80" id="textArea_chatlog"></textarea>
-      <br>
-      <input type="text" name="" value="" id="input_message">
-      <button id="btn_send" type="button" name="button">Send</button>
-    </div>
-  </main>
+    <!--Tabreiter haben Name von label-->
+    <template id="template-app-menu-li">   <!--id um Aussehen von App-Menü zu bearbeiten-->
+        <li data-page-name="$NAME$">
+            <a>$LABEL$</a>
+        </li>
+    </template>
+
+
+
 
 <!-- Seite: GameOne - Inhalt von GameOne -->
   <main id="main-page-gameOne" class="hidden" onload="the_game()">
@@ -143,250 +140,363 @@
         </div>
 
 
+    <!-- Seite: Startseite - Gibt es heute Pommes? -->
+    <main id="main-page-gibtespommes" class="hidden maincontent">
+        Guten Tag! Diese Website informiert sie, ob es heute an der DHBW Karlsruhe Pommes gibt!
+
     </main>
 
+  <!-- Seite: Chat - Inhalt von Chat -->
+    <main id="main-page-chat" class="hidden">
 
 
-<!-- Seite: PagePommesRezeptListe - Newbutton auf Rezept Startseite -->
-<main id="main-page-rezepteNewButton" class="hidden">
 
-  <div class="container-fluid">
-    <div class="row no-gutters">
-        <div class="col center-block">
-          <button type="button" id="new_button" class="btn btn-lg btn-primary btn-block" >Neues Rezept hinzufügen</button>
+      <div class="chat_div container" id="entername">
+        <div class="chat_spacer">
+        </div>
+        <br>
+
+        <div class="row no-gutters">
+          <div class="col-md-2" id="chat_lbl_username">
+                    Username:
+          </div>
+          <div class="col-md-7">
+            <input type="text" name="" value="" id="input_name" class="chat_input">
+          </div>
+
+          <div class="col-md-2">
+            <button type="button" name="button" id="btn_enterchat" class="chat_button btn btn-dark">Enter Chat</button>
+          </div>
+
+
+        </div>
+        <br>
+
+        <div class="chat_spacer">
+
+        </div>
+
+      </div>
+
+      <div class="chat_div container" id="chat">
+        <div class="chat_spacer">
+
+        </div>
+        <div class="row no-gutters">
+          <textarea readonly name="name" rows="8" cols="80" id="textArea_chatlog"></textarea>
+          <br>
+
+
+          <div class="col-md-10">
+              <input type="text" name="" value="" id="input_message" class="chat_input">
+          </div>
+
+          <div class="col-md-2">
+              <button id="btn_send" type="button" name="button" class="chat_button btn btn-dark">Send</button>
+          </div>
+
+        </div>
+        <div class="chat_spacer">
+
         </div>
       </div>
-    </div>
-
-</main>
 
 
-<!-- Seite: PagePommesRezeptListe - Inhalt von PommesRezept-Startseite -->
-<main id="main-page-rezepte" class="hidden">
-  <!--<template id="template-page-edit">-->
-  <ol>
 
-    <template id="template-page-list-empty">
-        <li>
-            <div class="name">
-                Kein Rezept vorhanden. Trag besser mal eins ein.
-            </div>
-        </li>
-    </template>
 
-  <!--    <template id="template-page-list-li">-->
+    </main>
 
+  <!-- Seite: GameOne - Inhalt von GameOne -->
+    <main id="main-page-gameOne" class="hidden">
+          <h1> Hier ist GameOne!</h1>
+      </main>
+
+  <!--Start des Funktionsbereichs Rezepte (geht bis zum Schluss) -->
+
+  <!--Template für Rezept-Übersicht wenn leere Liste -->
+  <template id="template-page-list-empty">
+      <li>
+          <div class="name" id="page_empty">
+              Kein Rezept vorhanden. Trag besser mal eins ein.
+          </div>
+      </li>
+  </template>
+
+  <!--Template für Rezept-Übersicht Liste -->
+  <template id="template-rezept-data">
   <li data-index="$INDEX$">
-            <div class="row no-gutters">
-              <div class="col-md-3">
-                <img src= "pommesBilder/pommesStandard.png" >  <!-- $IMAGE$--> <!--so oder in ""-->
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src= "pommesBilder/pommes$IMAGE$.png" >
+              </div>
+              <div class="col-md-9 zweite_spalte">
+                <div class="Rezept-Name">
+                  <b>$REZEPT_NAME$</b>
                 </div>
-                <div class="col-md-9" id="zweite_spalte">
-                  <div class="Rezept-Name">
-                    <b>$REZEPT_NAME$</b>
-                  </div>
-                  <div class = "Zutaten">
-                    <b>Zutaten:</b></br>
-                    $ZUTATEN$
-                  </div>
-                  <div class="Zubereitung">
-                    <b>Zubereitung:</b> </br>
-                    $ZUBEREITUNG$
-                  </div>
+                <div class = "Zutaten">
+                  <b>Zutaten:</b></br>
+                  $ZUTATEN$
+                </div>
+                <div class="Zubereitung">
+                  <b>Zubereitung:</b> </br>
+                  $ZUBEREITUNG$
                 </div>
               </div>
+            </div>
 
-      <div class="row no-gutters">
-        <div class="col">
-          <div id="rezept_Buttons">
-          <div class="actions">
-              <div title="Rezept bearbeiten" class="action edit">
-                  <a>🖊️</a>
-              </div>
-              <div title="Rezept löschen"class="action delete">
-                  <a>🗑️</a>
-              </div>
+    <div class="row no-gutters">
+      <div class="col">
+        <div id="rezept_Buttons">
+        <div class="actions">
+            <div title="Rezept bearbeiten" class="action edit">
+                <a>🖊️BEARBEITEN</a>
+            </div>
+            <div title="Rezept löschen"class="action delete">
+                <a>🗑️LÖSCHEN</a>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </li>
-  <!--</template>-->
+  </template>
 
 
-  </main>
+  <!-- main für Button "Neues Rezept hinzufügen"-->
+    <main id="main-page-rezepte" class="hidden">
 
-<!-- Seite: main-page-rezepteNewRezept -->
-<main id="main-page-rezepteNewRezept" class="hidden">
-<div class="container-fluid">
-  <div class="row no-gutters">
-      <div class="col center-block">
-        <button type="button" id="back_buttonToRezepte" class="btn btn-lg btn-primary btn-block" >Zurück zur Rezept-Übersicht</button><!--onclick="myFunction()-->
-      </div>
-    </div>
-  </div>
-
-    <div>
-        <div class="form">
-            <input class="rezept_name" id="rezept_name" placeholder="Name deines Rezepts" /> <!--value="$RECIPE_NAME$" />-->
-            <textarea class="zutaten"  id="zutaten" placeholder="Zutaten für dein Pommes-Rezept"  ></textarea><!--$INGREDIENTS$-->
-            <textarea rows="3" class="zubereitung" id="zubereitung" placeholder="Anleitung für die Zubereitung" ></textarea> <!--$PREPARATIONOFFOOD$-->
-        </div>
-        <div id="rezept_Buttons">
-        <div class="actions">
-            <div title="Bild einfügen" class="action bild">
-                <a>🖼️</a>
-            </div>
-              <div title="Rezept speichern" class="action save">
-                <a>💾</a>
+      <div class="container-fluid" id="containerNewButton">
+        <div class="row no-gutters">
+            <div class="container-fluid">
+              <div class="row no-gutters">
+                <div class="col-md-12">
+                    <button type="button" id="new_button" class="btn btn-lg btn-primary btn-block new_button" >Rezept hinzufügen</button>
+                </div>
               </div>
+
+            </div>
+          </div>
+        </div>
+
+      <ol id="ol_rezepte">
+    </main>
+
+    <!-- main für "Neues Rezept anlegen"-->
+    <main id="main-page-rezepteNewRezept" class="hidden">
+
+    </main>
+
+  <!-- main für Rezept Bilder Galerie -->
+    <main id="main-page-rezepteNewPicture" class="hidden">
+
+    </main>
+  <!--Template für Seite "Neues Rezept anlegen"-->
+  <template id="template-edit-rezept">
+    <div class="container-fluid">
+      <div class="row no-gutters">
+          <div class="col center-block">
+            <button type="button" id="back_buttonToRezepte" class="btn btn-lg btn-primary btn-block action back new_button" >Zurück zur Rezept-Übersicht</button><!--onclick="myFunction()-->
+          </div>
         </div>
       </div>
-    </div>
-</ol>
-</main>
 
-<!-- Seite: main-page-rezepteNewPicture -->
-<main id="main-page-rezepteNewPicture" class="hidden">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src= "pommesBilder/pommes$IMAGE$.png" >
+            </div>
 
-<div class="container-fluid">
-  <div class="pictures">
-   <div class="row no-gutters" >
-        <div class="col-md-3">
-          <img src="pommesBilder/pommesStandard.png"
-           alt="PommesBildStandard">
+            <div class="form col-md-9 zweite_spalte">
+                <input class="rezept_name edit_rezept_input" id="rezept_name" placeholder="Name deines Rezepts" value="$RECIPE_NAME$"></input> <!--value="$RECIPE_NAME$" />-->
+                <textarea class="zutaten edit_rezept_input"  id="zutaten" placeholder="Zutaten für dein Pommes-Rezept"  >$INGREDIENTS$</textarea><!--$INGREDIENTS$-->
+                <textarea rows="3" class="zubereitung edit_rezept_input" id="zubereitung" placeholder="Anleitung für die Zubereitung" >$PREPARATIONOFFOOD$</textarea> <!--$PREPARATIONOFFOOD$-->
+            </div>
         </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes1.png"
-             alt="PommesBild1">
-        </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes2.png"
-             alt="PommesBild2">
-        </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes3.png"
-             alt="PommesBild3">
-        </div>
+            <div id="rezept_Buttons">
+            <div class="actions">
+                <div title="Bild einfügen" class="action bild">
+                    <a>🖼️ BILD ÄNDERN</a>
+                </div>
+                  <div title="Rezept speichern" class="action save">
+                    <a>💾 SPEICHERN</a>
+                  </div>
+            </div>
+          </div>
+  </template>
+
+  <!--Template zu Bilder Galerie-->
+  <template id="template-img-dialog">
+    <div class="container-fluid">
+      <div class="pictures">
+       <div class="row no-gutters" >
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes0.png"
+               alt="PommesBildStandard">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes1.png"
+                 alt="PommesBild1">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes2.png"
+                 alt="PommesBild2">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes3.png"
+                 alt="PommesBild3">
+            </div>
+          </div>
+
+          <div class="row no-gutters" id="vorschlaege">
+                <div class="col-md-3">
+                  <input type="radio" id="bild0" name="Gallerie" value="0">
+                      <label for="bild0">Bild 1</label>
+                </div>
+                <div class="col-md-3">
+                  <input type="radio" id="bild1" name="Gallerie" value="1">
+                      <label for="bild1">Bild 2</label>
+                </div>
+                <div class="col-md-3">
+                  <input type="radio" id="bild2" name="Gallerie" value="2">
+                      <label for="bild2">Bild 3</label>
+                </div>
+                <div class="col-md-3">
+                  <input type="radio" id="bild3" name="Gallerie" value="3">
+                      <label for="bild3">Bild 4</label>
+                </div>
+            </div>
+
+    <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes4.png"
+               alt="PommesBild4">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes5.png"
+                 alt="PommesBild5">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes6.png"
+                 alt="PommesBild6">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes7.png"
+                 alt="PommesBild7">
+            </div>
       </div>
 
       <div class="row no-gutters" id="vorschlaege">
             <div class="col-md-3">
-              <input type="radio" id="bild0" name="Gallerie" value="Bild0">
-                  <label for="bild0">Bild 1</label>
+              <input type="radio" id="bild4" name="Gallerie" value="4">
+                  <label for="bild4">Bild 5</label>
             </div>
             <div class="col-md-3">
-              <input type="radio" id="bild1" name="Gallerie" value="Bild1">
-                  <label for="bild1">Bild 2</label>
+              <input type="radio" id="bild5" name="Gallerie" value="5">
+                  <label for="bild5">Bild 6</label>
             </div>
             <div class="col-md-3">
-              <input type="radio" id="bild2" name="Gallerie" value="Bild2">
-                  <label for="bild2">Bild 3</label>
+              <input type="radio" id="bild6" name="Gallerie" value="6">
+                  <label for="bild6">Bild 7</label>
             </div>
             <div class="col-md-3">
-              <input type="radio" id="bild3" name="Gallerie" value="Bild3">
-                  <label for="bild3">Bild 4</label>
+              <input type="radio" id="bild7" name="Gallerie" value="7">
+                  <label for="bild7">Bild 8</label>
             </div>
         </div>
 
-<div class="row no-gutters">
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes4.png"
-           alt="PommesBild4">
-        </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes5.png"
-             alt="PommesBild5">
-        </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes6.png"
-             alt="PommesBild6">
-        </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes7.png"
-             alt="PommesBild7">
-        </div>
-  </div>
+      <div class="row no-gutters">
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes8.png"
+               alt="PommesBild8">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes9.png"
+                 alt="PommesBild9">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes10.png"
+                 alt="PommesBild10">
+            </div>
+            <div class="col-md-3">
+              <img src="pommesBilder/pommes11.png"
+                 alt="PommesBild11">
+            </div>
+      </div>
 
-  <div class="row no-gutters" id="vorschlaege">
-        <div class="col-md-3">
-          <input type="radio" id="bild4" name="Gallerie" value="Bild4">
-              <label for="bild4">Bild 5</label>
+      <div class="row no-gutters" id="vorschlaege">
+            <div class="col-md-3">
+              <input type="radio" id="bild8" name="Gallerie" value="8">
+                  <label for="bild8">Bild 9</label>
+            </div>
+            <div class="col-md-3">
+              <input type="radio" id="bild9" name="Gallerie" value="9">
+                  <label for="bild9">Bild 10</label>
+            </div>
+            <div class="col-md-3">
+              <input type="radio" id="bild10" name="Gallerie" value="10">
+                  <label for="bild10">Bild 11</label>
+            </div>
+            <div class="col-md-3">
+              <input type="radio" id="bild11" name="Gallerie" value="11">
+                  <label for="bild11">Bild 12</label>
+            </div>
         </div>
-        <div class="col-md-3">
-          <input type="radio" id="bild5" name="Gallerie" value="Bild5">
-              <label for="bild5">Bild 6</label>
-        </div>
-        <div class="col-md-3">
-          <input type="radio" id="bild6" name="Gallerie" value="Bild6">
-              <label for="bild6">Bild 7</label>
-        </div>
-        <div class="col-md-3">
-          <input type="radio" id="bild7" name="Gallerie" value="Bild7">
-              <label for="bild7">Bild 8</label>
-        </div>
+     </div>
     </div>
 
-  <div class="row no-gutters">
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes8.png"
-           alt="PommesBild8">
+  <!--Buttons zu Bilder Galerie-->
+        <div id="rezept_Buttons">
+        <div class="actions">
+              <div title="Bild speichern" class="action savePicture">
+                <a>💾 SPEICHERN</a>
+              </div>
+            </div>
         </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes9.png"
-             alt="PommesBild9">
-        </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes10.png"
-             alt="PommesBild10">
-        </div>
-        <div class="col-md-3">
-          <img src="pommesBilder/pommes11.png"
-             alt="PommesBild11">
-        </div>
-  </div>
-
-  <div class="row no-gutters" id="vorschlaege">
-        <div class="col-md-3">
-          <input type="radio" id="bild8" name="Gallerie" value="Bild8">
-              <label for="bild8">Bild 9</label>
-        </div>
-        <div class="col-md-3">
-          <input type="radio" id="bild9" name="Gallerie" value="Bild9">
-              <label for="bild9">Bild 10</label>
-        </div>
-        <div class="col-md-3">
-          <input type="radio" id="bild10" name="Gallerie" value="Bild10">
-              <label for="bild10">Bild 11</label>
-        </div>
-        <div class="col-md-3">
-          <input type="radio" id="bild11" name="Gallerie" value="Bild11">
-              <label for="bild11">Bild 12</label>
-        </div>
-    </div>
- </div>
-
-</div>
-
-    <div id="rezept_Buttons">
-    <div class="actions">
-        <div title="Zurück gehen ohne zu speichern" class="action goBack">
-            <a>🔙</a>
-        </div>
-          <div title="Bild speichern" class="action savePicture">
-            <a>💾</a>
-          </div>
-        </div>
-    </div>
-
-</main>
-
+  </template>
 
 </body>
 
-
 <footer>
-  Hier könnte unser Footer stehen
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <ul>
+          <li class="bold">Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul>
+          <li class="bold">Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul>
+          <li class="bold">Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul>
+          <li class="bold">Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+          <li>Pommes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>
 
 </html>

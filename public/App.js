@@ -6,25 +6,25 @@ class App {
       { //Startseite - zeigt an ob es heute Pommes gibt oder nicht
         name: "page-list", // Name zum Aufrufen der Seite
         klass: PageGibtEsPommes, // Klasse, die die Seite bereitstellt
-        label: "Übersicht", // Bezeichnung der Seite
+        label: "ÜBERSICHT", // Bezeichnung der Seite
         hidden: false, // Seite kann im Menü ausgewählt werden
       },
       { //Chat-Seite
         name: "page-chat", // Name zum Aufrufen der Seite
         klass: PageChat, // Klasse, die die Seite bereitstellt
-        label: "Chat", // Bezeichnung der Seite
+        label: "CHAT", // Bezeichnung der Seite
         hidden: false, // Seite kann im Menü ausgewählt werden
       },
       {    //Seite zu GameOne
           name: "page-GameOne",               // Name zum Aufrufen der Seite
           klass: PageGameOne,                 // Klasse, die die Seite bereitstellt
-          label: "Lustiges Pommesspiel",      // Bezeichnung der Seite
+          label: "POMMESSPIEL",      // Bezeichnung der Seite
           hidden: false,                      // Seite kann im Menü ausgewählt werden
       },
       {    //Seite zu PommesRezepten Standardseite
           name: "page-PommesRezeptListe",
           klass: PagePommesRezeptListe,
-          label: "Rezepte",
+          label: "REZEPTE",
           hidden: false,                       // Seite kann im Menü ausgewählt werden
       },
       {    //Seite zu PommesRezepten Standardseite  Erweiterung 1                                         TEST
@@ -39,15 +39,40 @@ class App {
           label: "",
           hidden: true,                       // Seite kann im Menü ausgewählt werden
       },
-    ]
+    ];
+
+
+    this._rezepte = [
+      {
+        rezept_name: "Pommes süß-sauer",
+        zutaten: "eine Kartoffel, zwei Süßstoff, zwei TL Säuerungsmittel",
+        zubereitung: "1. Kartoffeln mit Schale in etwa gleich große Stifte schneiden. Mit dünnen Stiften werden die Pommes knusprig, bei dickeren Stiften bleiben sie saftig. 2. Wasser in eine große Schüssel füllen und die Pommes gut waschen, um die Stärke abzuwaschen. Danach in einem Sieb abtropfen lassen.",
+        image: 0,
+    },
+    {
+        rezept_name: "Pommes standard",
+        zutaten: "2kg Kartoffeln, 1L Wasser",
+        zubereitung: "1. Pommes auf einem Backblech verteilen und in der Speisestärke wälzen. Das macht die Pommes knuspriger. 2. Zubereitung im Backofen: die Kartoffelstifte bei 200°C für ca. 30 Minuten backen. Drehen Sie die Pommes nach der Hälfte der Zeit einmal um, damit sie gleichmäßig garen.",
+        image: 0,
+    }
+
+    ];
+
+
+
 
 
 
     this._currentPageObject = null;
     this._renderMenu();
 
+    this.showPage("page-list");
+
   }
 
+  getRezepte(){
+    return this._rezepte;
+  }
 
   _renderMenu() {
       let ul = document.querySelector("#app-menu > ul");    //Menüreiter anzeigen
@@ -105,5 +130,21 @@ class App {
       // Aktuelle Seite im Kopfbereich hervorheben
       document.querySelectorAll("#app-menu li").forEach(li => li.classList.remove("active"));
       document.querySelectorAll(`#app-menu li[data-page-name="${name}"]`).forEach(li => li.classList.add("active"));
+  }
+
+  getDataByIndex(index){
+    return this._rezepte[index];
+  }
+
+  loescheRezept(index){
+    this._rezepte.splice(index, 1);
+  }
+
+  changeData(index, data){
+    this._rezepte[index] = data;
+  }
+
+  appendData(data){
+    this._rezepte.push(data);
   }
 }
