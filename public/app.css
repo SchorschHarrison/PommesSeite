@@ -66,7 +66,7 @@ body{
      color: white;
      font-size: 2rem;
      font-kerning: 10;
-     border-radius: 0.5em 0.5em 0em 0em;
+     /* border-radius: 0.5em 0.5em 0em 0em; */
  }
 
  nav ul {
@@ -85,7 +85,7 @@ body{
      max-width: 25%;
      padding: 1em;
      margin: 0;
-     border-radius: 0.5em 0.5em 0em 0em;
+/*     border-radius: 0.5em 0.5em 0em 0em; */
      text-align: center;
  }
 
@@ -95,14 +95,14 @@ body{
      background-color: #F6903D;
      border: 0px solid #F6903D;
      border-bottom-width: 3px;
-     border-radius: 0.5em 0.5em 0em 0em;
+     /* border-radius: 0.5em 0.5em 0em 0em; */
  }
 
  nav li:hover {
      background-color: #F9D423;
      border: 0px solid #F9D423;
      border-bottom-width: 3px;
-     border-radius: 0.5em 0.5em 0em 0em;
+     /* border-radius: 0.5em 0.5em 0em 0em; */
      cursor: pointer;
  }
 
