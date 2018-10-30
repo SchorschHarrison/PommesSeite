@@ -66,7 +66,7 @@ class Chat {
       let timestamp = "(" +  time.getHours() +":" + time.getMinutes() + ":" + time.getSeconds() +")";
       console.log(timestamp);
 
-      logMessage = user.username + " "+ timestamp + ": " + message;
+      logMessage =  timestamp + " " + user.username + ": " + message;
       this.addMessageToLog(logMessage);
       this.sendMessageToClients(logMessage);
   }
