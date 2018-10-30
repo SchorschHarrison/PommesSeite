@@ -57,10 +57,10 @@ body{
 
  /* NAVIGATION */
  nav {
-     background-color: #ee7700;
+     background-color: #f9f6f1;
      color: black;
 
-     border: 1px solid #ee7700;
+     /* border: 1px solid #ee7700; */
      border-bottom-width: 3px;
      font-family: "Anton";
      color: white;
@@ -80,10 +80,12 @@ body{
  }
 
  nav li {
-      min-width: 25%;
+    background-color: #ee7700;
+    min-width: 25%;
      max-width: 25%;
      padding: 1em;
      margin: 0;
+     border-radius: 0.5em 0.5em 0em 0em;
      text-align: center;
  }
 
