@@ -15,13 +15,13 @@
       <!--Icon für Browsertab, transparent-->
       <link rel="icon title" type="image/x-png" href="french-fries_1f35f.png">
 
-      <!-- jquery Library-->
-      <script type="text/javascript" src="jquery.min.js"></script>
+
 
       <!--Einsprungspunkt für Website, wird geladen wenn die Seite geladen wird-->
       <link rel="stylesheet" href="index.css">
       <script type="text/javascript" src="index.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
 
       <!-- Klasse App: Steuert die gesamte Anwendung -->
       <script type="text/javascript" src="app.js"></script>
@@ -29,11 +29,11 @@
 
       <!--Klasse PageChat: für das Chat-Programm-->
       <script type="text/javascript" src="page-chat.js"></script>
-      <script type="text/javascript" src="page-gibtEsPommes.js"></script>
 
       <!-- Klasse PageGameOne: Steuert GameOne -->
       <script src="page-gameOne.js"></script>
       <link rel="stylesheet" href="page-gameOne.css" />
+
 
       <!-- Klasse PagePommesRezeptListe: -->
       <script src="page-pommesRezeptListe.js"></script>
@@ -48,8 +48,8 @@
       <link rel="stylesheet" href="page-pommesRezeptBild.css" />-->
 
       <!-- Klasse PageAppInhalt: -->
-      <!--<script src="page-appInhalt.js"></script>
-      <link rel="stylesheet" href="page-appInhalt.css" />-->
+      <script src="pageGibtEsPommes.js"></script>
+      <link rel="stylesheet" href="PageGibtEsPommes.css" />
 
       <!-- weitere Klassen hier einbinden-->
 
@@ -78,6 +78,16 @@
   <!-- Seite: Startseite - Gibt es heute Pommes? -->
   <main id="main-page-gibtespommes" class="hidden">
       Guten Tag! Diese Website informiert sie, ob es heute an der DHBW Karlsruhe Pommes gibt!
+      <div class="container fluid">
+        <div id="jumbotron"  class="jumbotron" >
+          <p class="lead">Gibt es heute Pommes in der Mensa?</p>
+
+          <span id="answer"></span>
+          <hr class="my-4">
+          <p>--hier kommt das Zitat--</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+      </div>
   </main>
 
 <!-- Seite: Chat - Inhalt von Chat -->
@@ -97,9 +107,9 @@
   </main>
 
 <!-- Seite: GameOne - Inhalt von GameOne -->
-  <main id="main-page-gameOne" class="hidden">
+  <main id="main-page-gameOne" class="hidden" onload="the_game()">
         <h1> Hier ist GameOne!</h1>
-        <div class="" id="container">
+        <div class="" id="container_gameOne">
           <div class="" id="score_help"> Score:
             <span id="score">0</span> | Life:
             <span id="life"></span> | Use mouse to control
@@ -126,11 +136,12 @@
 
           <div class="" id="floor"></div>
 
-          <button type="button" name="buttonrestart" id="restart">Restart</button>
-          <button type="button" name="buttonlev2" id="lev2">Level 2</button>
-          <button type="button" name="buttonlev1" id="lev1">Level 1</button>
+          <button type="button" name="buttonrestart" id="restart" onclick="restart()">Restart</button>
+          <button type="button" name="buttonlev2" id="lev2" onclick="lev2()">Level 2</button>
+          <button type="button" name="buttonlev1" id="lev1" onclick="lev1()">Level 1</button>
 
         </div>
+
 
     </main>
 
