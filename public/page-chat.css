@@ -10,5 +10,43 @@
 }
 
 #textArea_chatlog{
+  min-width: 100%;
   resize: none;
+  margin-bottom: 1%;
+}
+
+.chat_spacer{
+  min-height: 2em;
+}
+
+.chat_button{
+  width: 100%;
+}
+
+.chat_input{
+/*  margin-top: 1%; */
+  width: 100%;
+  height: 100%;
+}
+
+#chat_lbl_username{
+  font-size: 1.5em;
+  border-right: 2%;
+  padding-right: 1em;
+}
+
+.chat_div{
+  width: 90%;
+  align-items: center;
+  align-self: center;
+  align: center;
+}
+
+#btn_send{
+  margin-left: 1%;
+  font-size: 1.5rem;
+}
+
+#main-page-chat{
+  min-height: 60%;
 }

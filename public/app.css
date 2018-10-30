@@ -13,6 +13,7 @@
      color: black;
  }
 
+
  html {
      font-family: "Anton", sans-serif;
      font-size: 10pt;
@@ -22,13 +23,24 @@
  .hidden {
      display: none;
  }
+main{
+  min-height: 100%;
+}
 
+body{
+  min-height: 100%;
+}
+
+.maincontent{
+  min-height: 100%;
+}
 
  /*Responsive-Einstellung*/
  @media (min-width: 40em) {
      html {
          background-color: #f9f6f1;
          font-size: 11pt;
+         min-height: 100%;
      }
 
      body {
@@ -54,6 +66,7 @@
      color: white;
      font-size: 2rem;
      font-kerning: 10;
+     border-radius: 0.5em 0.5em 0em 0em;
  }
 
  nav ul {
@@ -68,7 +81,7 @@
 
  nav li {
       min-width: 25%;
-      max-width: 25%;
+     max-width: 25%;
      padding: 1em;
      margin: 0;
      text-align: center;
@@ -78,14 +91,38 @@
 
  nav li.active {
      background-color: #F6903D;
-     border: 0px solid maroon;
+     border: 0px solid #F6903D;
      border-bottom-width: 3px;
+     border-radius: 0.5em 0.5em 0em 0em;
  }
 
  nav li:hover {
      background-color: #F9D423;
-     border: 0px solid #616161;
+     border: 0px solid #F9D423;
      border-bottom-width: 3px;
-
+     border-radius: 0.5em 0.5em 0em 0em;
      cursor: pointer;
  }
+
+ footer{
+   margin-top: 1em;
+   background-color: black;
+   color: white;
+ }
+
+iframe{
+  overflow: hidden;
+  width: 800px;
+  height: 600px;
+  scroll-behavior: none;
+}
+
+
+footer .bold{
+  font-weight: bold;
+}
+
+footer ul{
+  margin-top: 1em;
+  list-style: none;
+}

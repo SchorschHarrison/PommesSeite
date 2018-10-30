@@ -66,6 +66,8 @@ class App {
     this._currentPageObject = null;
     this._renderMenu();
 
+    this.showPage("page-list");
+
   }
 
   getRezepte(){
