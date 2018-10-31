@@ -7,7 +7,7 @@ class PagePommesRezeptListe {
     this._app = app;
     this._mainElement = document.getElementById("main-page-rezepte");
 
-    //???
+    //Button wird neuem ActionListener zugeordnet wenn vorher keine Instanz der Klasse existiert
     if(PagePommesRezeptListe.btn_neuesRezept == null){
       PagePommesRezeptListe.btn_neuesRezept = document.getElementById("new_button");
       PagePommesRezeptListe.btn_neuesRezept.addEventListener("click", () => this.neuesRezept());
@@ -24,7 +24,7 @@ class PagePommesRezeptListe {
   hide(){
     this._mainElement.classList.add("hidden");
 
-    //?
+    //falls ein Dialog offen ist soll dieser versteckt werden
     if(PagePommesRezeptListe._currentDialoge != null ) {
       PagePommesRezeptListe._currentDialoge.hide();
       PagePommesRezeptListe._currentDialoge = null;
@@ -87,7 +87,7 @@ class PagePommesRezeptListe {
 
   }
 
-  //?
+  //wechselt ansicht auf Editierklasse
   _showEditDialog(index){
     this.hide();
     let editDialog = new PageRezeptEdit(this._app, "page_edit", index, this);
@@ -96,14 +96,7 @@ class PagePommesRezeptListe {
     editDialog.show();
   }
 
-  //?
-  _showEditDialog2(index){
-    this.hide();
-    let editDialog = new PageRezeptEdit(this._app, "page_edit", index, this);
-    PagePommesRezeptListe._currentDialoge_new = editDialog;
-    console.log(editDialog);
-    editDialog.show();
-  }
+
 //Funktion zum löschen eines Rezepts
   _askDelete(index){
     let answer = confirm("Soll das ausgewählte Rezept wirklich gelöscht werden?");
