@@ -60,6 +60,13 @@ io.on('connection', function(socket){
   socket.on('gibt es heute pommes', function(){
 
     let pommes = 0;
+    let date = new Date();
+    let day = date.getDay();
+    if(day == 0 || day == 6){
+      socket.emit('gibt es heute pommes', 0 );
+      return
+    }
+
     rp(url)
       .then(function(html){
         //success!
