@@ -1,6 +1,7 @@
 #jumbotron{
   color: gelb !important;
   border: 12 px solid red !important;
+  margin-top: 1em;
 }
 
 #answer{
