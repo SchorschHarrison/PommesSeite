@@ -28,12 +28,7 @@ Node server.js starten
 node server.js
 ```
 
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
+## Benutzte Tools
 
 * [Node.js](https://nodejs.org/en/)
 * [SOCKET.IO](https://socket.io/)
