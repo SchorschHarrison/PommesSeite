@@ -2,7 +2,7 @@
 
 class PageGibtEsPommes {
 
-
+// Konstuktor der die Daten vom Server läd und die Textelemente definiert
   constructor(app, name) {
     this._app = app;
     this.name = name;
@@ -23,16 +23,17 @@ class PageGibtEsPommes {
     PageGibtEsPommes.socket.emit('gibt es heute pommes');
   }
 
-
+//sorgt dafür, dass man den Inhalt der Seite sehen kann
   show(){
     this._mainElement.classList.remove("hidden");
   }
-
+// sorgt dafür, dass man den Inhalt der Seite nicht sieht
   hide(){
     this._mainElement.classList.add("hidden");
   }
 
-
+//  Wenn der Server Pommes im HTML Code der Seite Imensa erkennt wird der Metode Pommes Anzeige der wert 1 mitgegeben
+// Wird der Methode 1 mitgegeben, so wird auf der Konsole  gelogt, dass es Pommes gibt und der Text auf der seite bekommt den Inhalt Ja; wenn nicht dann nein
   pommesAnzeige(pommes){
     if(pommes == 1){
       console.log("Pommes! :D");
