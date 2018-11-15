@@ -171,3 +171,14 @@ html, body {
 #marginoben{
   margin-top: 1em;
 }
+
+.new_button{
+  color:white;
+  background-color: #0477BF;
+  border: 0;
+  padding: 0.5em;
+  font-size: 2rem;
+  color: white;
+  border-radius: 0.4em;
+  width: 100%;
+}

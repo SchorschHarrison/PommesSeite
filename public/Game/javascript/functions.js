@@ -93,6 +93,7 @@ restart.click(function () {
   score_1.text(score);
   life = startLife;
   life_span.text(life);
+  speed = startSpeed;
 
   restart.slideUp();
   lev2.slideUp();

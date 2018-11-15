@@ -20,6 +20,7 @@ let basket = $('#basket'),
     levelIndex = 1,
     life = 3,
     startLife = 3,
+    startSpeed = 2
     speed = 2,
     max_speed = 75,
     counter = 0,
