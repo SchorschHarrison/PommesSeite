@@ -1,3 +1,5 @@
+// Überprüft ob zwei divs sich berühren
+
 function collision($div1, $div2){
     let x1 = $div1.offset().left;
     let y1 = $div1.offset().top;

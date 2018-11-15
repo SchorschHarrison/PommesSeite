@@ -13,11 +13,13 @@ $(document).on('mousemove', function (e) {
   }
 });
 
+//Funktion die die Pommes nahc unten bewegt
 function chip_down(chip){
   chip_current_position = parseInt(chip.css('top'));
   chip.css('top', chip_current_position + speed);
 }
 
+//Funktion die prüft ob die Pommes den Boden berührenund wenn ja die pommes zurücksetzt und ein Leben abzeiht
 function check_chip_hits_floor(chip){
   if (collision(chip, floor)){
     show_mashed_pot(chip);
@@ -27,10 +29,12 @@ function check_chip_hits_floor(chip){
   return false;
 }
 
+// Funktion die die Pommes wieder zurücksetzt
 function set_chip_to_initial_position(chip) {
   chip.css('top', chip_initial_position);
 }
 
+// Funktion die am Boden Kartoffelbrei anzeigt, wenn die Pommes auf dem Boden aufkommt
 function show_mashed_pot(chip){
   mashedpot_num = chip.attr('data-mashedpot');
 
@@ -38,17 +42,21 @@ function show_mashed_pot(chip){
   hide_mashed_pot(mashedpot_num);
 }
 
+//Funktion die den Kartoffelbrei nach 800ms wieder verschwinden lässt
 function hide_mashed_pot(mashedpot_num) {
   setTimeout(function () {
     $('#mashedpot' + mashedpot_num).hide();
   }, 800);
 }
 
+// die die Anzahl der leben decrementiert
 function decrement_life() {
   life--;
   life_span.text(life);
 }
 
+
+// Funktion, die überprüft ob eine Pommes mit der Tüte aufgefangen wurde, dann den Score erhöht und dann die Pommes zurücksetzt
 function check_chip_hits_basket(chip){
   if (collision(chip, basket)) {
     chip_top = parseInt(chip.css('top'));
@@ -60,6 +68,7 @@ function check_chip_hits_basket(chip){
   return false;
 }
 
+//Funktion die den Score erhöht und ab einem gewissen Score die Geschwindigkeit der Pommes erhöht
 function update_score() {
   score++;
   if (score % 10  === 0 && score <= max_speed) {
@@ -69,6 +78,7 @@ function update_score() {
   score_1.text(score);
 }
 
+// Funktion die das Spiel beendet und die Buttons zum Fortfahren zeigt
 function stop_the_game(){
   cancelAnimationFrame(anim_id);
   restart.slideDown();
@@ -83,6 +93,7 @@ function stop_the_game(){
   }
 }
 
+// Funktion die das aktuelle Spiel neustartet
 restart.click(function () {
   set_chip_to_initial_position(chip1);
   set_chip_to_initial_position(chip2);
@@ -122,7 +133,7 @@ lev1.click(function () {
   console.log("der levelIndex ist ");
   console.log(levelIndex);
 })
-
+//ungenutzte Sleep funktion
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {

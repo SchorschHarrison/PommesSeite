@@ -1,3 +1,5 @@
+//hier werden alle Variablen Deklariert
+
 let basket = $('#basket'),
     container = $('#container'),
     frit = $('.frit'),

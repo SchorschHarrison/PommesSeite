@@ -1,3 +1,5 @@
+//Hauptfunktion die den AnimationFrame startet und die Funktionen aufruft, die das Spiel starten
+
 $(function () {
 
     the_game1 = function () {
