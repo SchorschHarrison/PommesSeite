@@ -30,11 +30,6 @@ if(currentChat == ''){
 }
 
 
-
-
-
-
-
 //Event: new Connection
 io.on('connection', function(socket){
   console.log("chat: " + currentChat);

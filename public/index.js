@@ -1,3 +1,5 @@
+//index point for JavaScript
+
 document.addEventListener('DOMContentLoaded', function() {
    // your code here
 
