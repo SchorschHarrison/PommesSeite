@@ -21,6 +21,7 @@ class PageChat {
     this.input_message.addEventListener("keyup", (event) => this.enterPressed(event));
     PageChat.btn_send.addEventListener("click", () => this.send());
 
+    //Es kann nur einen geben. Er ist der Highlander!
     if(PageChat.socket == null){
       PageChat.socket = io.connect('http://localhost:80');
       PageChat.socket.on('message', (message) => this.recieveMessage(message));
@@ -36,6 +37,7 @@ class PageChat {
     PageChat.ids++;
   }
 
+  //show page
   show(){
     this._mainElement.classList.remove("hidden");
     if(PageChat.connectedToChat > 0){
@@ -49,6 +51,7 @@ class PageChat {
 
   }
 
+  //hide page
   hide(){
     this._mainElement.classList.add("show");
     this.div_entername.classList.add("hidden");
@@ -56,12 +59,14 @@ class PageChat {
   //  PageChat.socket = null;
   }
 
+
   recieveChatlog(_chatlog){
     console.log(_chatlog);
     PageChat.chatlog = _chatlog;
     this.updateTextArea();
   }
 
+  //enter on pressed on inputfield handler
   enterPressed(event){
     event.preventDefault();
 
@@ -70,6 +75,7 @@ class PageChat {
     }
   }
 
+  //recieved message from server handler method
   recieveMessage(message){
     console.log("recieved something");
     PageChat.chatlog.push(message);
@@ -78,12 +84,14 @@ class PageChat {
     this.updateTextArea();
   }
 
+  //shows log in Texteara
   updateTextArea(){
     this.textArea_chatlog.value = PageChat.chatlog.join("\n");
     this.textArea_chatlog.scrollTop = this.textArea_chatlog.scrollHeight;
   }
 
 
+  //send message to Server
   send(){
     console.log("pressed Send " + this.id);
 
