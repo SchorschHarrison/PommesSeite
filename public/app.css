@@ -1,12 +1,8 @@
-/*Stylesheet zur Klasse App: Hautpsheet der Anwendung
- * Hier sollten nur allgemeine Sachen stehen, die das Layout als Ganzes
- * betreffen. Also solche Dinge wie Schriftart und Größe, Farben usw.
- * Spezifische Angaben zur Listenübersicht oder dem Eingabeformular gehören
- * in das jeweilige Stylesheet und nicht hierher.
+/*
+ * Stylesheet zur Klasse App: Hautpsheet der Anwendung
  */
 
- /* ALLGEMEINES */
-
+/*Allgemeines*/
  html, body {
      padding: 0;
      margin: 0;

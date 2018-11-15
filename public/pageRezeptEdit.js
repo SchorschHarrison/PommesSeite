@@ -1,7 +1,11 @@
+/*
+ * Klasse PageRezeptEdit: Funktionalität um Rezept einzutragen
+ */
 class PageRezeptEdit {
 
 
   constructor(app, pageName, editIndex, list) {
+    //Werte übergeben
     console.log(pageName + "   "  + editIndex);
     this._app = app;
     this._editIndex = editIndex;
@@ -9,6 +13,7 @@ class PageRezeptEdit {
     this._list = list;
     PageRezeptEdit._currentImageDialog = null;
 
+    // dataset leeren
     this._dataset =  {
         rezept_name: "",
         zutaten: "",
@@ -20,21 +25,24 @@ class PageRezeptEdit {
     if(this._editIndex > -1){
       let dataset = this._app.getDataByIndex(this._editIndex);
 
+      //Befüllen von dataset
       this._dataset.rezept_name = dataset.rezept_name;
       this._dataset.zutaten = dataset.zutaten;
       this._dataset.zubereitung = dataset.zubereitung;
       this._dataset.image = dataset.image;
     }
-
+//Hauptfunktion dieser Klasse starten
     this._zeigeEditDialog();
 
 
   }
 
-
+//Hauptfunktion dieser Klasse
   _zeigeEditDialog(){
+      // Alten Inhalt verwerfen
     this._mainElement.innerHTML = "";
 
+      // Formularfelder einfügen
     let template = document.getElementById("template-edit-rezept").innerHTML;
     this._mainElement.innerHTML = template;
 
@@ -45,6 +53,7 @@ class PageRezeptEdit {
 
     console.log(this._mainElement.innerHTML);
 
+    //Buttons erzeugen und verbinden
     let btn_save = this._mainElement.querySelector(".action.save");
     btn_save.addEventListener("click" , () => this.saveChanges());
 
@@ -75,6 +84,7 @@ class PageRezeptEdit {
 
 
   openImageDialog(){
+    //Übernehmen der Werte und Wechsel auf Bildauswahl
     let name = this._mainElement.querySelector(".rezept_name").value.trim();
     let zutaten = this._mainElement.querySelector(".zutaten").value.trim();
     let zubereitung = this._mainElement.querySelector(".zubereitung").value.trim();
@@ -91,6 +101,7 @@ class PageRezeptEdit {
 
 
   updateImage(image){
+    //Bild übernehmen
     this._dataset.image = image;
     this._zeigeEditDialog();
     PageRezeptEdit._currentImageDialog.hide();
@@ -101,6 +112,7 @@ class PageRezeptEdit {
   saveChanges(){
     console.log("saving...");
 
+// Eingegebene Werte überprüfen
     let name = this._mainElement.querySelector(".rezept_name").value.trim();
     let zutaten = this._mainElement.querySelector(".zutaten").value.trim();
     let zubereitung = this._mainElement.querySelector(".zubereitung").value.trim();
@@ -121,7 +133,7 @@ class PageRezeptEdit {
       return;
     }
 
-
+ // Datensatz speichern 
     this._dataset.rezept_name = name;
     this._dataset.zutaten = zutaten;
     this._dataset.zubereitung = zubereitung;

@@ -1,12 +1,14 @@
+
+/*
+ * Layout Datei für die Rezept-Liste
+ */
+
 /*Bildanzeige im gesamten Funktionsbereich Rezepte*/
   img {
     width: 100%;
     height: 100%;
     display: block;
   }
-
-
-  
 
 
 /*Abstände für Rezept-Übersicht-Kacheln und Rezept-anlegen-Kachel*/

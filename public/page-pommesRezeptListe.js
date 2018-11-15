@@ -1,4 +1,6 @@
-
+/*
+ * Klasse PagePommesRezeptListe: Die Hauptfunktionalitäten von "Rezepte" werden hierrüber gesteuert
+ */
 
 class PagePommesRezeptListe {
 

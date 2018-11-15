@@ -1,10 +1,9 @@
 "use strict";
 
-/**
- * Klasse PageGameOne: JavaScript für GameOne
- *
- * Diese Klasse wird von der App-Klasse zu bestimmten Zeitpunkten instantiiert
- */
+/*
+* Klasse PageGameOne: JavaScript für GameOne
+* Ist die Seite mit dem Button "Auf Gehts"
+*/
 
 class PageGameOne{
 
